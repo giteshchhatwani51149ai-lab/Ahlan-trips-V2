@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ahlan-Trips - Save up to 70% on international flights. Book your next adventure with our trusted global travel partner." />
+  <title>Ahlan-Trips | Book Flights &amp; Hotels</title>
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #111111;
+      --accent: #ff6b00;
+      --accent-hover: #e55a00;
+      --text-dark: #111111;
+      --text-body: #4A443F;
+      --text-muted: #7C736B;
+      --bg: #f7f9fc;
+      --bg-white: #ffffff;
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #FBF8F4;
+      color: #201E1D;
+      -webkit-font-smoothing: antialiased;
+      overflow: auto;
+    }
+
+    /* Slides Container */
+    .slides-container {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #ffffff;
+      box-shadow: 0 0 0 1px #ECE7E0;
+    }
+
+    .slides-wrapper {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 90px 24px 100px;
+      position: relative;
+    }
+
+    /* Slide Background Images */
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      z-index: 0;
+    }
+
+    .slide:nth-child(1) .slide-bg { background-image: url('assets/slider1-2000.jpg'); }
+    .slide:nth-child(2) .slide-bg { background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&h=1600&fit=crop'); }
+    .slide:nth-child(3) .slide-bg { background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&h=1600&fit=crop'); }
+    .slide:nth-child(4) .slide-bg { background-image: url('https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=900&h=1600&fit=crop'); }
+    .slide:nth-child(5) .slide-bg { background-image: url('assets/hero-destination.png'); }
+
+    /* Header with Logo & Back Button */
+    .slide-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 100%);
+      z-index: 10;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 20px;
+      background: rgba(255, 107, 0, 0.1);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: rgba(255, 107, 0, 0.2);
+    }
+
+    .back-button.hidden {
+      display: none;
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .slide-logo {
+      height: 42px;
+      width: auto;
+    }
+
+    .slide-brand {
+      display: none;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      position: absolute;
+      top: 70px;
+      left: 24px;
+      right: 24px;
+      z-index: 10;
+    }
+
+    .progress-bar-bg {
+      height: 4px;
+      background: #ECE7E0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      width: 20%;
+    }
+
+    .slide-counter {
+      position: absolute;
+      right: 0;
+      top: -25px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Slide Content */
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide-title {
+      font-family: 'Libre Caslon Display', Georgia, serif;
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+
+    .slide-title .highlight {
+      color: var(--accent);
+    }
+
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .slide-subtitle strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    /* Deal Cards */
+    .deal-card {
+      background: var(--bg-white);
+      border: 1px solid #ECE7E0;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin: 12px 0;
+      text-align: left;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .deal-route {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .deal-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .deal-price-old {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .deal-price-new {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .deal-saving {
+      background: rgba(255, 107, 0, 0.1);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    /* Airport Autocomplete */
+    .airport-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ECE7E0;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 999;
+      max-height: 220px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .airport-dropdown.open {
+      display: block;
+    }
+
+    .airport-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-bottom: 1px solid #F6F2EC;
+      transition: background 0.15s;
+    }
+
+    .airport-item:last-child {
+      border-bottom: none;
+    }
+
+    .airport-item:hover, .airport-item.active {
+      background: #fff8f3;
+    }
+
+    .airport-code {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      min-width: 38px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .airport-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .airport-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .airport-city {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Feature List */
+    .feature-list {
+      text-align: left;
+      margin: 12px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+    }
+
+    .cta-button:focus-visible, .back-button:focus-visible, .search-tab:focus-visible, .quick-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .cta-button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 107, 0, 0.4);
+    }
+
+    .cta-button-secondary {
+      background: transparent;
+      color: var(--text-body);
+      border: 2px solid #ECE7E0;
+      box-shadow: none;
+      font-weight: 600;
+    }
+
+    .cta-button-secondary:hover {
+      background: #F6F2EC;
+      border-color: #D8D0C6;
+      box-shadow: none;
+    }
+
+    /* Flight Search Form (Slide 5) */
+    .search-form-container {
+      background: var(--bg-white);
+      border: 1px solid #ECE7E0;
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .search-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ECE7E0;
+      padding-bottom: 12px;
+    }
+
+    .search-tab {
+      flex: 1;
+      padding: 10px;
+      background: transparent;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: all 0.2s ease;
+    }
+
+    .search-tab.active {
+      background: rgba(255, 107, 0, 0.1);
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-input {
+      font-family: inherit;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ECE7E0;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: #FBF8F4;
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Quick Tags */
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .quick-tag {
+      padding: 6px 12px;
+      background: #F6F2EC;
+      border: 1px solid #ECE7E0;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quick-tag:hover {
+      background: rgba(255, 107, 0, 0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Website Link */
+    .website-link {
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .website-link a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .website-link a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    .slide-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(0deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 107, 0, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--accent);
+    }
+
+    .success-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .success-text {
+      color: var(--text-body);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="slides-container" id="slidesContainer">
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="slide-counter"><span id="currentSlide">1</span> / 5</div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="slide-header">
+      <button class="back-button hidden" id="backButton" onclick="prevSlide()" aria-label="Go back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <a href="/" aria-label="Ahlan-Trips — home"><img src="assets/logo-mark.png" alt="Ahlan-Trips" class="slide-logo" /></a>
+    </div>
+
+    <div class="slides-wrapper" id="slidesWrapper">
+      <!-- SLIDE 1: Value Prop -->
+      <div class="slide">
+        <div class="slide-bg"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">Save Up To <span class="highlight">70%</span> On Flights</h1>
+          <p class="slide-subtitle">
+            Our members save <strong>500 TND*</strong>/ticket on average<br/>
+            on international flights worldwide
+          </p>
+          <button class="cta-button" onclick="nextSlide()">HOW IT WORKS?</button>
+          <p class="disclaimer">*Based on customer bookings in 2026</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Email Alerts -->
+      <div class="slide">
+        <div class="slide-bg"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">Get Deals Sent To Your WhatsApp</h1>
+          <p class="slide-subtitle">
+            We monitor prices from all major airlines.<br/>
+            <strong>The moment a great deal appears,</strong> we send it directly to your phone.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Real-time price alerts</span>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Compare 500+ airlines</span>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>Book in 2 minutes</span>
+            </div>
+          </div>
+          <button class="cta-button" onclick="nextSlide()">NEXT</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Best Deals -->
+      <div class="slide">
+        <div class="slide-bg"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">Last Month's Best Finds:</h1>
+          <p class="slide-subtitle">
+            Our customers received <strong>Tunis → Paris</strong> return flight for just
+          </p>
+          
+          <div class="deal-card">
+            <div class="deal-route">Tunis (TUN) ⇄ Paris (CDG)</div>
+            <div class="deal-price">
+              <span class="deal-price-old">700 TND</span>
+              <span class="deal-price-new">500 TND</span>
+            </div>
+            <span class="deal-saving">Save 200 TND (29% off)</span>
+          </div>
+
+          <button class="cta-button" onclick="nextSlide()">I WANT DEALS LIKE THIS</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: More Deal -->
+      <div class="slide">
+        <div class="slide-bg"></div>
+        <div class="slide-content">
+          <h1 class="slide-title">Another Amazing Deal</h1>
+          <p class="slide-subtitle">
+            Customers got <strong>Tunis → Istanbul</strong> return
+          </p>
+          
+          <div class="deal-card">
+            <div class="deal-route">Tunis (TUN) ⇄ Istanbul (IST)</div>
+            <div class="deal-price">
+              <span class="deal-price-old">1,100 TND</span>
+              <span class="deal-price-new">800 TND</span>
+            </div>
+            <span class="deal-saving">Save 300 TND (27% off)</span>
+          </div>
+
+          <button class="cta-button" onclick="nextSlide()">GET STARTED</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: Search Form -->
+      <div class="slide">
+        <div class="slide-bg"></div>
+        <div class="slide-content">
+          <h1 class="slide-title" style="font-size: 1.6rem;">Search Your Flight</h1>
+          <p class="slide-subtitle">Enter your travel details and we'll find the best deals for you.</p>
+          
+          <div class="search-form-container">
+            <form id="flightSearchForm" action="https://formspree.io/f/xnqkqgqj" method="POST">
+              <input type="hidden" name="_subject" value="New Flight Search - Instagram Bio">
+              
+              <div class="search-tabs">
+                <button type="button" class="search-tab active" data-type="oneway" onclick="setTripType('oneway')">One Way</button>
+                <button type="button" class="search-tab" data-type="return" onclick="setTripType('return')">Return</button>
+                <button type="button" class="search-tab" data-type="multicity" onclick="setTripType('multicity')">Multi-City</button>
+                <input type="hidden" name="trip_type" id="tripTypeInput" value="One Way">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" style="position:relative;">
+                  <label class="form-label" for="fromInput">From</label>
+                  <input type="text" id="fromInput" name="from_city" class="form-input airport-input" placeholder="City or airport" autocomplete="off" required>
+                  <div class="airport-dropdown" id="fromDropdown"></div>
+                </div>
+                <div class="form-group" style="position:relative;">
+                  <label class="form-label" for="toInput">To</label>
+                  <input type="text" id="toInput" name="to_city" class="form-input airport-input" placeholder="City or airport" autocomplete="off" required>
+                  <div class="airport-dropdown" id="toDropdown"></div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Depart</label>
+                  <input type="date" name="depart_date" class="form-input" placeholder="Select date" data-cal-mode="range-start" data-cal-group="slide-dates" required>
+                </div>
+                <div class="form-group" id="returnDateGroup">
+                  <label class="form-label">Return</label>
+                  <input type="date" name="return_date" class="form-input" id="returnDateInput" placeholder="Select date" data-cal-mode="range-end" data-cal-group="slide-dates">
+                </div>
+              </div>
+
+              <!-- Multi-City Segments -->
+              <div id="multiCitySegments"></div>
+              
+              <!-- Add Flight Button (only for multi-city) -->
+              <button type="button" id="addFlightBtn" class="cta-button-secondary" onclick="addMultiCitySegment()" style="display: none; width: 100%; margin: 16px 0; padding: 12px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Add Another Flight
+              </button>
+
+              <button type="submit" class="cta-button" style="margin-top: 20px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                SEARCH FLIGHTS
+              </button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+              <div class="success-icon">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="success-title">Request Sent!</div>
+              <div class="success-text">Our travel expert will contact you shortly with the best flight deals.</div>
+              <button class="cta-button" onclick="window.location.href='/'" style="margin-top: 20px;">VISIT FULL WEBSITE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer with Website Link -->
+    <div class="slide-footer">
+      <div class="website-link">
+        <a href="/">
+          Visit Full Website
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 5;
+
+    function updateProgress() {
+      const progress = ((currentSlide + 1) / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+      document.getElementById('currentSlide').textContent = currentSlide + 1;
+      
+      // Show/hide back button
+      const backButton = document.getElementById('backButton');
+      if (currentSlide > 0) {
+        backButton.classList.remove('hidden');
+      } else {
+        backButton.classList.add('hidden');
+      }
+    }
+
+    function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      
+      currentSlide = index;
+      document.getElementById('slidesWrapper').style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateProgress();
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    // ── Airport Data & Autocomplete ─────────────────────────────
+    const AIRPORTS = [
+      {code:"TUN",name:"Tunis-Carthage International Airport",city:"Tunis",country:"Tunisia"},
+      {code:"SFA",name:"Sfax–Thyna International Airport",city:"Sfax",country:"Tunisia"},
+      {code:"MIR",name:"Monastir Habib Bourguiba International Airport",city:"Monastir",country:"Tunisia"},
+      {code:"TOE",name:"Tozeur–Nefta International Airport",city:"Tozeur",country:"Tunisia"},
+      {code:"DJE",name:"Djerba–Zarzis International Airport",city:"Djerba",country:"Tunisia"},
+      {code:"IST",name:"Istanbul Airport",city:"Istanbul",country:"Turkey"},
+      {code:"SAW",name:"Sabiha Gökçen International Airport",city:"Istanbul",country:"Turkey"},
+      {code:"ADB",name:"Izmir Adnan Menderes Airport",city:"Izmir",country:"Turkey"},
+      {code:"ESB",name:"Ankara Esenboga Airport",city:"Ankara",country:"Turkey"},
+      {code:"CDG",name:"Charles de Gaulle Airport",city:"Paris",country:"France"},
+      {code:"ORY",name:"Paris Orly Airport",city:"Paris",country:"France"},
+      {code:"LYS",name:"Lyon–Saint-Exupéry Airport",city:"Lyon",country:"France"},
+      {code:"MRS",name:"Marseille Provence Airport",city:"Marseille",country:"France"},
+      {code:"NCE",name:"Nice Côte d'Azur Airport",city:"Nice",country:"France"},
+      {code:"LHR",name:"Heathrow Airport",city:"London",country:"United Kingdom"},
+      {code:"LGW",name:"Gatwick Airport",city:"London",country:"United Kingdom"},
+      {code:"STN",name:"Stansted Airport",city:"London",country:"United Kingdom"},
+      {code:"MAN",name:"Manchester Airport",city:"Manchester",country:"United Kingdom"},
+      {code:"EDI",name:"Edinburgh Airport",city:"Edinburgh",country:"United Kingdom"},
+      {code:"FRA",name:"Frankfurt Airport",city:"Frankfurt",country:"Germany"},
+      {code:"MUC",name:"Munich Airport",city:"Munich",country:"Germany"},
+      {code:"BER",name:"Berlin Brandenburg Airport",city:"Berlin",country:"Germany"},
+      {code:"DUS",name:"Düsseldorf Airport",city:"Düsseldorf",country:"Germany"},
+      {code:"HAM",name:"Hamburg Airport",city:"Hamburg",country:"Germany"},
+      {code:"AMS",name:"Amsterdam Schiphol Airport",city:"Amsterdam",country:"Netherlands"},
+      {code:"BRU",name:"Brussels Airport",city:"Brussels",country:"Belgium"},
+      {code:"MAD",name:"Adolfo Suárez Madrid–Barajas Airport",city:"Madrid",country:"Spain"},
+      {code:"BCN",name:"Barcelona El Prat Airport",city:"Barcelona",country:"Spain"},
+      {code:"FCO",name:"Rome Fiumicino Airport",city:"Rome",country:"Italy"},
+      {code:"MXP",name:"Milan Malpensa Airport",city:"Milan",country:"Italy"},
+      {code:"LIN",name:"Milan Linate Airport",city:"Milan",country:"Italy"},
+      {code:"VCE",name:"Venice Marco Polo Airport",city:"Venice",country:"Italy"},
+      {code:"ATH",name:"Athens International Airport",city:"Athens",country:"Greece"},
+      {code:"ZRH",name:"Zurich Airport",city:"Zurich",country:"Switzerland"},
+      {code:"GVA",name:"Geneva Airport",city:"Geneva",country:"Switzerland"},
+      {code:"VIE",name:"Vienna International Airport",city:"Vienna",country:"Austria"},
+      {code:"CPH",name:"Copenhagen Airport",city:"Copenhagen",country:"Denmark"},
+      {code:"ARN",name:"Stockholm Arlanda Airport",city:"Stockholm",country:"Sweden"},
+      {code:"OSL",name:"Oslo Gardermoen Airport",city:"Oslo",country:"Norway"},
+      {code:"HEL",name:"Helsinki Airport",city:"Helsinki",country:"Finland"},
+      {code:"WAW",name:"Warsaw Chopin Airport",city:"Warsaw",country:"Poland"},
+      {code:"PRG",name:"Prague Václav Havel Airport",city:"Prague",country:"Czech Republic"},
+      {code:"BUD",name:"Budapest Ferenc Liszt Airport",city:"Budapest",country:"Hungary"},
+      {code:"LIS",name:"Lisbon Humberto Delgado Airport",city:"Lisbon",country:"Portugal"},
+      {code:"OPO",name:"Francisco de Sá Carneiro Airport",city:"Porto",country:"Portugal"},
+      {code:"DXB",name:"Dubai International Airport",city:"Dubai",country:"UAE"},
+      {code:"AUH",name:"Abu Dhabi International Airport",city:"Abu Dhabi",country:"UAE"},
+      {code:"DOH",name:"Hamad International Airport",city:"Doha",country:"Qatar"},
+      {code:"BAH",name:"Bahrain International Airport",city:"Manama",country:"Bahrain"},
+      {code:"KWI",name:"Kuwait International Airport",city:"Kuwait City",country:"Kuwait"},
+      {code:"MCT",name:"Muscat International Airport",city:"Muscat",country:"Oman"},
+      {code:"RUH",name:"King Khalid International Airport",city:"Riyadh",country:"Saudi Arabia"},
+      {code:"JED",name:"King Abdulaziz International Airport",city:"Jeddah",country:"Saudi Arabia"},
+      {code:"CAI",name:"Cairo International Airport",city:"Cairo",country:"Egypt"},
+      {code:"HRG",name:"Hurghada International Airport",city:"Hurghada",country:"Egypt"},
+      {code:"SSH",name:"Sharm el-Sheikh International Airport",city:"Sharm El-Sheikh",country:"Egypt"},
+      {code:"CMN",name:"Mohammed V International Airport",city:"Casablanca",country:"Morocco"},
+      {code:"RAK",name:"Marrakesh Menara Airport",city:"Marrakesh",country:"Morocco"},
+      {code:"ALG",name:"Houari Boumediene Airport",city:"Algiers",country:"Algeria"},
+      {code:"ORN",name:"Ahmed Ben Bella Airport",city:"Oran",country:"Algeria"},
+      {code:"LBA",name:"Annaba Airport",city:"Annaba",country:"Algeria"},
+      {code:"TIP",name:"Mitiga International Airport",city:"Tripoli",country:"Libya"},
+      {code:"MMA",name:"Mauritania Airport",city:"Nouakchott",country:"Mauritania"},
+      {code:"DAK",name:"Dakar Airport",city:"Dakar",country:"Senegal"},
+      {code:"ABJ",name:"Félix-Houphouët-Boigny Airport",city:"Abidjan",country:"Côte d'Ivoire"},
+      {code:"ACC",name:"Kotoka International Airport",city:"Accra",country:"Ghana"},
+      {code:"LOS",name:"Murtala Muhammed International Airport",city:"Lagos",country:"Nigeria"},
+      {code:"ABV",name:"Nnamdi Azikiwe International Airport",city:"Abuja",country:"Nigeria"},
+      {code:"NBO",name:"Jomo Kenyatta International Airport",city:"Nairobi",country:"Kenya"},
+      {code:"JNB",name:"OR Tambo International Airport",city:"Johannesburg",country:"South Africa"},
+      {code:"CPT",name:"Cape Town International Airport",city:"Cape Town",country:"South Africa"},
+      {code:"JFK",name:"John F. Kennedy International Airport",city:"New York",country:"USA"},
+      {code:"LGA",name:"LaGuardia Airport",city:"New York",country:"USA"},
+      {code:"EWR",name:"Newark Liberty International Airport",city:"New York",country:"USA"},
+      {code:"LAX",name:"Los Angeles International Airport",city:"Los Angeles",country:"USA"},
+      {code:"ORD",name:"O'Hare International Airport",city:"Chicago",country:"USA"},
+      {code:"MIA",name:"Miami International Airport",city:"Miami",country:"USA"},
+      {code:"SFO",name:"San Francisco International Airport",city:"San Francisco",country:"USA"},
+      {code:"BOS",name:"Logan International Airport",city:"Boston",country:"USA"},
+      {code:"ATL",name:"Hartsfield-Jackson Atlanta International Airport",city:"Atlanta",country:"USA"},
+      {code:"DFW",name:"Dallas/Fort Worth International Airport",city:"Dallas",country:"USA"},
+      {code:"YYZ",name:"Toronto Pearson International Airport",city:"Toronto",country:"Canada"},
+      {code:"YVR",name:"Vancouver International Airport",city:"Vancouver",country:"Canada"},
+      {code:"YUL",name:"Montreal-Trudeau International Airport",city:"Montreal",country:"Canada"},
+      {code:"GRU",name:"São Paulo/Guarulhos International Airport",city:"São Paulo",country:"Brazil"},
+      {code:"GIG",name:"Rio de Janeiro–Galeão International Airport",city:"Rio de Janeiro",country:"Brazil"},
+      {code:"MEX",name:"Mexico City International Airport",city:"Mexico City",country:"Mexico"},
+      {code:"BOG",name:"El Dorado International Airport",city:"Bogotá",country:"Colombia"},
+      {code:"LIM",name:"Jorge Chávez International Airport",city:"Lima",country:"Peru"},
+      {code:"EZE",name:"Ministro Pistarini International Airport",city:"Buenos Aires",country:"Argentina"},
+      {code:"SVO",name:"Sheremetyevo International Airport",city:"Moscow",country:"Russia"},
+      {code:"DME",name:"Domodedovo International Airport",city:"Moscow",country:"Russia"},
+      {code:"LED",name:"Pulkovo Airport",city:"St. Petersburg",country:"Russia"},
+      {code:"BEY",name:"Beirut Rafic Hariri International Airport",city:"Beirut",country:"Lebanon"},
+      {code:"AMM",name:"Queen Alia International Airport",city:"Amman",country:"Jordan"},
+      {code:"TLV",name:"Ben Gurion Airport",city:"Tel Aviv",country:"Israel"},
+      {code:"BGW",name:"Baghdad International Airport",city:"Baghdad",country:"Iraq"},
+      {code:"IKA",name:"Imam Khomeini International Airport",city:"Tehran",country:"Iran"},
+      {code:"KBL",name:"Hamid Karzai International Airport",city:"Kabul",country:"Afghanistan"},
+      {code:"KHI",name:"Jinnah International Airport",city:"Karachi",country:"Pakistan"},
+      {code:"LHE",name:"Allama Iqbal International Airport",city:"Lahore",country:"Pakistan"},
+      {code:"ISB",name:"Islamabad International Airport",city:"Islamabad",country:"Pakistan"},
+      {code:"DEL",name:"Indira Gandhi International Airport",city:"New Delhi",country:"India"},
+      {code:"BOM",name:"Chhatrapati Shivaji Maharaj International Airport",city:"Mumbai",country:"India"},
+      {code:"BLR",name:"Kempegowda International Airport",city:"Bangalore",country:"India"},
+      {code:"MAA",name:"Chennai International Airport",city:"Chennai",country:"India"},
+      {code:"CCU",name:"Netaji Subhash Chandra Bose International Airport",city:"Kolkata",country:"India"},
+      {code:"HYD",name:"Rajiv Gandhi International Airport",city:"Hyderabad",country:"India"},
+      {code:"COK",name:"Cochin International Airport",city:"Kochi",country:"India"},
+      {code:"PNQ",name:"Pune Airport",city:"Pune",country:"India"},
+      {code:"DAC",name:"Hazrat Shahjalal International Airport",city:"Dhaka",country:"Bangladesh"},
+      {code:"CMB",name:"Bandaranaike International Airport",city:"Colombo",country:"Sri Lanka"},
+      {code:"KTM",name:"Tribhuvan International Airport",city:"Kathmandu",country:"Nepal"},
+      {code:"RGN",name:"Yangon International Airport",city:"Yangon",country:"Myanmar"},
+      {code:"BKK",name:"Suvarnabhumi Airport",city:"Bangkok",country:"Thailand"},
+      {code:"DMK",name:"Don Mueang International Airport",city:"Bangkok",country:"Thailand"},
+      {code:"HKT",name:"Phuket International Airport",city:"Phuket",country:"Thailand"},
+      {code:"KUL",name:"Kuala Lumpur International Airport",city:"Kuala Lumpur",country:"Malaysia"},
+      {code:"SIN",name:"Singapore Changi Airport",city:"Singapore",country:"Singapore"},
+      {code:"CGK",name:"Soekarno–Hatta International Airport",city:"Jakarta",country:"Indonesia"},
+      {code:"DPS",name:"Ngurah Rai International Airport",city:"Bali",country:"Indonesia"},
+      {code:"MNL",name:"Ninoy Aquino International Airport",city:"Manila",country:"Philippines"},
+      {code:"SGN",name:"Tan Son Nhat International Airport",city:"Ho Chi Minh City",country:"Vietnam"},
+      {code:"HAN",name:"Noi Bai International Airport",city:"Hanoi",country:"Vietnam"},
+      {code:"PEK",name:"Beijing Capital International Airport",city:"Beijing",country:"China"},
+      {code:"PKX",name:"Beijing Daxing International Airport",city:"Beijing",country:"China"},
+      {code:"PVG",name:"Shanghai Pudong International Airport",city:"Shanghai",country:"China"},
+      {code:"CAN",name:"Guangzhou Baiyun International Airport",city:"Guangzhou",country:"China"},
+      {code:"HKG",name:"Hong Kong International Airport",city:"Hong Kong",country:"Hong Kong"},
+      {code:"TPE",name:"Taiwan Taoyuan International Airport",city:"Taipei",country:"Taiwan"},
+      {code:"ICN",name:"Incheon International Airport",city:"Seoul",country:"South Korea"},
+      {code:"GMP",name:"Gimpo International Airport",city:"Seoul",country:"South Korea"},
+      {code:"NRT",name:"Narita International Airport",city:"Tokyo",country:"Japan"},
+      {code:"HND",name:"Haneda Airport",city:"Tokyo",country:"Japan"},
+      {code:"KIX",name:"Kansai International Airport",city:"Osaka",country:"Japan"},
+      {code:"SYD",name:"Sydney Kingsford Smith Airport",city:"Sydney",country:"Australia"},
+      {code:"MEL",name:"Melbourne Airport",city:"Melbourne",country:"Australia"},
+      {code:"BNE",name:"Brisbane Airport",city:"Brisbane",country:"Australia"},
+      {code:"PER",name:"Perth Airport",city:"Perth",country:"Australia"},
+      {code:"AKL",name:"Auckland Airport",city:"Auckland",country:"New Zealand"},
+      {code:"ADD",name:"Addis Ababa Bole International Airport",city:"Addis Ababa",country:"Ethiopia"},
+      {code:"DAR",name:"Julius Nyerere International Airport",city:"Dar es Salaam",country:"Tanzania"},
+      {code:"EBB",name:"Entebbe International Airport",city:"Entebbe",country:"Uganda"},
+      {code:"KGL",name:"Kigali International Airport",city:"Kigali",country:"Rwanda"},
+      {code:"HRE",name:"Robert Gabriel Mugabe International Airport",city:"Harare",country:"Zimbabwe"},
+      {code:"MRU",name:"Sir Seewoosagur Ramgoolam International Airport",city:"Mauritius",country:"Mauritius"},
+    ];
+
+    function searchAirports(query) {
+      if (!query || query.length < 2) return [];
+      const q = query.toLowerCase();
+      return AIRPORTS.filter(a =>
+        a.code.toLowerCase().startsWith(q) ||
+        a.city.toLowerCase().includes(q) ||
+        a.name.toLowerCase().includes(q) ||
+        a.country.toLowerCase().includes(q)
+      ).slice(0, 8);
+    }
+
+    function setupAirportAutocomplete(inputId, dropdownId) {
+      const input = document.getElementById(inputId);
+      const dropdown = document.getElementById(dropdownId);
+      let activeIndex = -1;
+
+      input.addEventListener('input', () => {
+        const results = searchAirports(input.value);
+        activeIndex = -1;
+        if (results.length === 0) {
+          dropdown.classList.remove('open');
+          dropdown.innerHTML = '';
+          return;
+        }
+        dropdown.innerHTML = results.map((a, i) => `
+          <div class="airport-item" data-index="${i}" data-value="${a.code} - ${a.city} (${a.name})"
+               onmousedown="selectAirport('${inputId}','${dropdownId}','${a.code} - ${a.city}', '${a.code}')">
+            <span class="airport-code">${a.code}</span>
+            <div class="airport-info">
+              <span class="airport-name">${a.city} — ${a.name}</span>
+              <span class="airport-city">${a.country}</span>
+            </div>
+          </div>`).join('');
+        dropdown.classList.add('open');
+      });
+
+      input.addEventListener('keydown', (e) => {
+        const items = dropdown.querySelectorAll('.airport-item');
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = Math.min(activeIndex + 1, items.length - 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = Math.max(activeIndex - 1, 0);
+        } else if (e.key === 'Enter' && activeIndex >= 0) {
+          e.preventDefault();
+          items[activeIndex].dispatchEvent(new Event('mousedown'));
+        } else if (e.key === 'Escape') {
+          dropdown.classList.remove('open');
+        }
+        items.forEach((item, i) => item.classList.toggle('active', i === activeIndex));
+      });
+
+      input.addEventListener('blur', () => {
+        setTimeout(() => dropdown.classList.remove('open'), 200);
+      });
+    }
+
+    function selectAirport(inputId, dropdownId, value) {
+      document.getElementById(inputId).value = value;
+      document.getElementById(dropdownId).classList.remove('open');
+    }
+
+    // Initialize autocomplete for main form inputs
+    setupAirportAutocomplete('fromInput', 'fromDropdown');
+    setupAirportAutocomplete('toInput', 'toDropdown');
+
+    // Trip Type Toggle
+    function setTripType(type) {
+      document.querySelectorAll('.search-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`[data-type="${type}"]`).classList.add('active');
+      
+      const returnGroup = document.getElementById('returnDateGroup');
+      const returnInput = document.getElementById('returnDateInput');
+      const multiCityContainer = document.getElementById('multiCitySegments');
+      const addFlightBtn = document.getElementById('addFlightBtn');
+      
+      if (type === 'oneway') {
+        returnGroup.style.display = 'none';
+        returnInput.removeAttribute('required');
+        document.getElementById('tripTypeInput').value = 'One Way';
+        multiCityContainer.innerHTML = '';
+        addFlightBtn.style.display = 'none';
+      } else if (type === 'return') {
+        returnGroup.style.display = 'block';
+        returnInput.setAttribute('required', 'required');
+        document.getElementById('tripTypeInput').value = 'Return';
+        multiCityContainer.innerHTML = '';
+        addFlightBtn.style.display = 'none';
+      } else if (type === 'multicity') {
+        returnGroup.style.display = 'none';
+        returnInput.removeAttribute('required');
+        document.getElementById('tripTypeInput').value = 'Multi-City';
+        multiCityContainer.innerHTML = '';
+        addMultiCitySegment();
+        addFlightBtn.style.display = 'block';
+      }
+    }
+
+    // Add Multi-City Segment
+    function addMultiCitySegment() {
+      const container = document.getElementById('multiCitySegments');
+      const segmentCount = container.children.length + 1;
+      
+      const segmentHTML = `
+        <div class="multi-city-segment" style="border-top: 1px solid #ECE7E0; padding-top: 16px; margin-top: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--accent);">Flight ${segmentCount + 1}</span>
+            ${segmentCount > 0 ? `<button type="button" onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: var(--text-muted); font-size: 0.75rem; cursor: pointer;">Remove</button>` : ''}
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">From</label>
+              <input type="text" name="multicity_from_${segmentCount}" class="form-input" placeholder="City or airport" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">To</label>
+              <input type="text" name="multicity_to_${segmentCount}" class="form-input" placeholder="City or airport" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Depart</label>
+            <input type="date" name="multicity_date_${segmentCount}" class="form-input" required>
+          </div>
+        </div>
+      `;
+      
+      container.insertAdjacentHTML('beforeend', segmentHTML);
+    }
+
+    // Touch/Swipe Navigation
+    let startX = 0;
+    let isDragging = false;
+    const container = document.getElementById('slidesContainer');
+
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    });
+
+    // Form Submit Handler with fallback
+    document.getElementById('flightSearchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = this;
+      const formData = new FormData(form);
+      
+      // Try to submit via Formspree
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          // Show success
+          form.style.display = 'none';
+          document.getElementById('successMessage').classList.add('show');
+        } else {
+          // Fallback: open email client
+          openEmailClient(formData);
+        }
+      }).catch(error => {
+        // Fallback: open email client
+        openEmailClient(formData);
+      });
+    });
+
+    // Fallback: Open email client with form data
+    function openEmailClient(formData) {
+      const tripType = formData.get('trip_type');
+      const from = formData.get('from_city');
+      const to = formData.get('to_city');
+      const depart = formData.get('depart_date');
+      const returnDate = formData.get('return_date') || 'N/A';
+      
+      let body = `Flight Search Request (from Instagram Bio)\n\n`;
+      body += `Trip Type: ${tripType}\n`;
+      body += `From: ${from}\n`;
+      body += `To: ${to}\n`;
+      body += `Depart: ${depart}\n`;
+      if (tripType === 'Return') {
+        body += `Return: ${returnDate}\n`;
+      }
+      
+      // Add multi-city segments if any
+      let segmentCount = 1;
+      while (formData.get(`multicity_from_${segmentCount}`)) {
+        body += `\nFlight ${segmentCount + 1}:\n`;
+        body += `From: ${formData.get(`multicity_from_${segmentCount}`)}\n`;
+        body += `To: ${formData.get(`multicity_to_${segmentCount}`)}\n`;
+        body += `Date: ${formData.get(`multicity_date_${segmentCount}`)}\n`;
+        segmentCount++;
+      }
+      
+      const mailtoLink = `mailto:info@ahlan-trips.com?subject=New Flight Search - Instagram Bio&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+      
+      // Show message after a delay
+      setTimeout(() => {
+        document.getElementById('flightSearchForm').style.display = 'none';
+        document.getElementById('successMessage').classList.add('show');
+      }, 2000);
+    }
+
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Initialize
+    setTripType('oneway'); // Hide return date by default
+    updateProgress();
+
+  </script>
+  <script src="calendar.js"></script>
+  <script>
+    if (window.AhlanCalendar) AhlanCalendar.init();
+  </script>
+</body>
+</html>

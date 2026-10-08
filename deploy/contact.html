@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact — Ahlan-Trips</title>
+<meta name="description" content="Contact Ahlan-Trips — corporate travel management in Tunis, Tunisia. Head office in Centre Urbain Nord. Email info@ahlan-trips.com or WhatsApp +216 27 764 593." />
+<meta property="og:title" content="Contact Ahlan-Trips — Corporate Travel, Tunis" />
+<meta property="og:description" content="Speak with the Ahlan-Trips travel team in Tunis. Enquiries answered within one business day; traveller support 24/7." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  input, select, textarea { font-family: inherit; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,460px"
+    crumb="Contact"
+    eyebrow="Contact"
+    title="Speak with our travel team"
+    lede="Tell us how your organisation travels today — routes, volumes, who books and what keeps going wrong. We reply within one business day, and traveller support runs 24/7."
+    ctaLabel="Email us directly"
+    heroImg="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=1600&h=800&fit=crop"
+    heroAlt="An empty boardroom with a long conference table set for a meeting"></dc-import>
+
+  <section style="background: #ffffff; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 72px); alignItems: start;">
+
+      <div>
+        <h2 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(26px, 2.8vw, 38px); lineHeight: 1.12; letterSpacing: -0.018em; color: #111111;">Head office</h2>
+        <div style="marginTop: 26px; display: flex; flexDirection: column; gap: 2px;" data-stagger="1">
+          <sc-for list="{{ details }}" as="d" hint-placeholder-count="5">
+            <div style="display: grid; gridTemplateColumns: 38px 1fr; gap: 16px; padding: 20px 0; borderTop: 1px solid #ECE7E0; alignItems: start;">
+              <span style="width: 38px; height: 38px; display: grid; placeItems: center; background: #FFF3E9; color: #B84D00; borderRadius: 11px;" dangerouslySetInnerHTML="{{ d.icon }}"></span>
+              <div style="minWidth: 0;">
+                <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #7C736B;">{{ d.label }}</div>
+                <div style="marginTop: 6px; fontSize: 15.5px; lineHeight: 1.55; color: #201E1D;" dangerouslySetInnerHTML="{{ d.value }}"></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div data-reveal="2" data-reveal-mode="scale" style="marginTop: 30px; borderRadius: 18px; overflow: hidden; border: 1px solid #ECE7E0; position: relative; background: #2A2724;">
+          <div style="aspectRatio: 16 / 9; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?w=1000&h=562&fit=crop" alt="The blue-and-white terraces of Sidi Bou Saïd above the Gulf of Tunis" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.9);" data-ken="1" />
+          </div>
+          <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 42%, rgba(17,17,17,.76) 100%);"></div>
+          <div style="position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; alignItems: center; gap: 12px; color: #ffffff;">
+            <span data-pulse="1" style="width: 36px; height: 36px; flexShrink: 0; display: grid; placeItems: center; background: #FF6B00; borderRadius: 999px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </span>
+            <span>
+              <span style="display: block; fontSize: 14.5px; fontWeight: 600;">Tunis, Tunisia</span>
+              <span style="display: block; fontSize: 12.5px; color: rgba(255,255,255,.76);">Head office in Centre Urbain Nord</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form data-reveal="2" data-reveal-mode="right" onSubmit="{{ submit }}" style="background: #FBF8F4; border: 1px solid #ECE7E0; borderRadius: 20px; padding: clamp(22px, 3vw, 36px);">
+          <h2 style="margin: 0 0 6px; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(24px, 2.4vw, 32px); lineHeight: 1.14; letterSpacing: -0.018em; color: #111111;">Send an enquiry</h2>
+          <p style="margin: 0 0 26px; fontSize: 14.5px; lineHeight: 1.6; color: #5C554F;">Required fields are marked with an asterisk.</p>
+
+          <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+            <div>
+              <label for="c-name" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">Full name *</label>
+              <input id="c-name" name="name" type="text" required="required" autocomplete="name" placeholder="Amira Ben Salah" style="width: 100%; boxSizing: border-box; height: 50px; padding: 0 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; color: #201E1D;" />
+            </div>
+            <div>
+              <label for="c-company" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">Company *</label>
+              <input id="c-company" name="company" type="text" required="required" autocomplete="organization" placeholder="Your organisation" style="width: 100%; boxSizing: border-box; height: 50px; padding: 0 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; color: #201E1D;" />
+            </div>
+            <div>
+              <label for="c-email" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">Work email *</label>
+              <input id="c-email" name="email" type="email" required="required" autocomplete="email" placeholder="you@company.tn" style="width: 100%; boxSizing: border-box; height: 50px; padding: 0 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; color: #201E1D;" />
+            </div>
+            <div>
+              <label for="c-phone" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">Phone</label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+216 00 000 000" style="width: 100%; boxSizing: border-box; height: 50px; padding: 0 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; color: #201E1D;" />
+            </div>
+          </div>
+
+          <div style="marginTop: 16px;">
+            <label for="c-need" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">What do you need? *</label>
+            <select id="c-need" name="need" required="required" style="width: 100%; boxSizing: border-box; height: 50px; padding: 0 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; color: #201E1D;">
+              <option value="">Select a requirement</option>
+              <option>Corporate travel programme</option>
+              <option>Travel management &amp; policy</option>
+              <option>Meetings &amp; events (MICE)</option>
+              <option>Visa assistance</option>
+              <option>Leisure or incentive travel</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div style="marginTop: 20px;">
+            <span style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 9px;">Preferred contact method</span>
+            <div style="display: flex; flexWrap: wrap; gap: 8px;">
+              <sc-for list="{{ methods }}" as="m" hint-placeholder-count="3">
+                <button type="button" onClick="{{ m.pick }}" aria-pressed="{{ m.active }}" style="border: 1px solid {{ m.border }}; background: {{ m.bg }}; color: {{ m.color }}; borderRadius: 999px; padding: 10px 17px; fontFamily: inherit; fontSize: 13.5px; fontWeight: 600; cursor: pointer; transition: background .16s, border-color .16s;">{{ m.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="marginTop: 20px;">
+            <label for="c-msg" style="display: block; fontSize: 12.5px; fontWeight: 600; color: #2B2724; marginBottom: 7px;">Travel requirement *</label>
+            <textarea id="c-msg" name="message" rows="5" required="required" placeholder="Routes, approximate volumes, who books today, and what you want to change." style="width: 100%; boxSizing: border-box; padding: 13px 15px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontSize: 15px; lineHeight: 1.55; color: #201E1D; resize: vertical;"></textarea>
+          </div>
+
+          <p style="margin: 18px 0 0; fontSize: 12.5px; lineHeight: 1.6; color: #7C736B;">By submitting this form you agree that Ahlan-Trips may contact you about our services.</p>
+          <button type="submit" style="width: 100%; marginTop: 18px; height: 54px; background: #FF6B00; color: #ffffff; border: none; borderRadius: 999px; fontFamily: inherit; fontSize: 15.5px; fontWeight: 600; cursor: pointer; transition: background .18s;" style-hover="background: #E55F00;">Submit enquiry</button>
+          <p aria-live="polite" style="margin: 14px 0 0; fontSize: 14px; fontWeight: 600; color: #B84D00; textAlign: center; display: {{ statusDisplay }};">{{ status }}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Prefer to talk it through?"
+    body="Message us on WhatsApp in Arabic, French or English — the same Tunis team that would run your programme answers."
+    primaryLabel="Email info@ahlan-trips.com"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { method: "Email", status: "" };
+
+  renderVals() {
+    const s = this.state;
+    const ic = h => ({ __html: '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">' + h + '</svg>' });
+    return {
+      details: [
+        { label: "Address", icon: ic('<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>'), value: { __html: "Immeuble Nour City, B1-4 1ère Étage<br />Centre Urbain Nord, Tunis 1082, Tunisia" } },
+        { label: "Email", icon: ic('<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'), value: { __html: '<a href="mailto:info@ahlan-trips.com" style="color:#B84D00;text-decoration:none">info@ahlan-trips.com</a>' } },
+        { label: "WhatsApp", icon: ic('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.82 19.79 19.79 0 0 1 0 1.19 2 2 0 0 1 2 0h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L6.91 7.91a16 16 0 0 0 6.07 6.07l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 15z"/>'), value: { __html: '<a href="https://wa.me/21627764593" style="color:#B84D00;text-decoration:none">+216 27 764 593</a><br /><a href="https://wa.me/21627764649" style="color:#B84D00;text-decoration:none">+216 27 764 649</a>' } },
+        { label: "Response time", icon: ic('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'), value: { __html: "Enquiries answered within one business day.<br />Traveller support available 24/7." } },
+        { label: "Also operating in", icon: ic('<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'), value: { __html: "India · Dubai · Tunisia — serving travel programmes in 140+ countries." } }
+      ],
+      methods: ["Email", "Phone", "WhatsApp"].map(m => ({
+        label: m, active: s.method === m,
+        bg: s.method === m ? "#FFF3E9" : "#ffffff",
+        border: s.method === m ? "#FFD9B8" : "#E6E0D8",
+        color: s.method === m ? "#B84D00" : "#2B2724",
+        pick: () => this.setState({ method: m })
+      })),
+      submit: (e) => {
+        e.preventDefault();
+        const form = e.target;
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        const g = n => ((form.elements[n] || {}).value || "").trim();
+        const body = [
+          "Hello Ahlan-Trips team,", "",
+          "Name: " + g("name"), "Company: " + g("company"), "Email: " + g("email"), "Phone: " + (g("phone") || "—"),
+          "Requirement: " + g("need"), "Preferred contact method: " + s.method, "",
+          "Travel requirement:", g("message"), "", "--- Sent from the Ahlan-Trips website ---"
+        ].join("\n");
+        const subject = "Enquiry: " + g("need") + " — " + g("company");
+        window.location.href = "mailto:info@ahlan-trips.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        this.setState({ status: "Opening your email app with your enquiry filled in. If nothing opens, email info@ahlan-trips.com." });
+      },
+      status: s.status,
+      statusDisplay: s.status ? "block" : "none"
+    };
+  }
+}
+</script>
+</body>
+</html>

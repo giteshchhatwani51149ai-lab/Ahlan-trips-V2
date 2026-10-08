@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About — Ahlan-Trips</title>
+<meta name="description" content="About Ahlan-Trips — a corporate travel management company based in Tunis, Tunisia, connecting Tunisian, African and international organisations to 140+ countries." />
+<meta property="og:title" content="About Ahlan-Trips — Corporate Travel Management, Tunis" />
+<meta property="og:description" content="Our story, mission and travel philosophy: local expertise in Tunis, international capability across 140+ countries." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="About"
+    eyebrow="About Ahlan-Trips"
+    title="Your journey, our responsibility"
+    lede="Ahlan-Trips is a corporate travel management company based in Centre Urbain Nord, Tunis. We run travel programmes for Tunisian, African and international organisations — combining a team that knows the region with the content, controls and reporting a global programme demands."
+    ctaLabel="Talk to our team"
+    heroImg="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&h=800&fit=crop"
+    heroAlt="A business traveller reviewing an itinerary"></dc-import>
+
+  <!-- Story -->
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 118px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 86px); alignItems: start;">
+      <div>
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Our story</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(30px, 3.8vw, 50px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Built for how African businesses actually travel</h2>
+      </div>
+      <div style="display: flex; flexDirection: column; gap: 20px;">
+        <p style="margin: 0; fontSize: 16.8px; lineHeight: 1.68; color: #4A443F; textWrap: pretty;">Ahlan-Trips started where most corporate travel in the region still sits: between a local agency that understands the market but can't report on it, and an international platform that reports beautifully on a market it doesn't know. Neither worked for the organisations we served.</p>
+        <p style="margin: 0; fontSize: 16.8px; lineHeight: 1.68; color: #4A443F; textWrap: pretty;">So we built both sides into one company. From Tunis we negotiate directly with airlines and hotel chains — 500+ supplier relationships today — and wrap them in policy, approvals and analytics that a CFO in Tunis, Paris or Dubai can read the same way. Today our programmes cover travel in 140+ countries for more than 5,000 active enterprise clients, with regional operations experts in India, Dubai and Tunisia.</p>
+        <p style="margin: 0; fontSize: 16.8px; lineHeight: 1.68; color: #4A443F; textWrap: pretty;">The promise in our logo is the operating principle: <em>your journey, our responsibility</em>. When a flight is cancelled at 02:00, that is our problem to solve, not the traveller's.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision / Values -->
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(60px, 8vw, 110px) clamp(18px, 4vw, 44px);">
+      <h2 style="margin: 0 0 clamp(32px, 4vw, 52px); maxWidth: 24ch; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">What we are here to do</h2>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(24px, 3vw, 44px);" data-stagger="1">
+        <sc-for list="{{ mvv }}" as="m" hint-placeholder-count="3">
+          <div style="borderTop: 2px solid #FF6B00; paddingTop: 22px;">
+            <h3 style="margin: 0; fontSize: 12px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">{{ m.label }}</h3>
+            <p style="margin: 16px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: clamp(19px, 1.8vw, 24px); lineHeight: 1.36; color: #ffffff; letterSpacing: -0.01em; textWrap: pretty;">{{ m.statement }}</p>
+            <p style="margin: 14px 0 0; fontSize: 14.8px; lineHeight: 1.64; color: rgba(255,255,255,.66); textWrap: pretty;">{{ m.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values index -->
+  <section style="background: #FBF8F4; padding: clamp(60px, 8vw, 118px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 560px; marginBottom: clamp(28px, 3.5vw, 44px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Our values</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Five things we do not negotiate on</h2>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(270px, 1fr)); gap: 0 clamp(24px, 4vw, 60px);" data-stagger="1">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
+          <div style="display: grid; gridTemplateColumns: 52px 1fr; gap: 14px; padding: clamp(20px, 2.4vw, 28px) 0; borderTop: 1px solid #E6E0D8;">
+            <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 30px; lineHeight: .9; color: #D8CFC4;">{{ v.num }}</div>
+            <div style="minWidth: 0;">
+              <h3 style="margin: 0; fontSize: 17px; fontWeight: 600; color: #111111;">{{ v.title }}</h3>
+              <p style="margin: 8px 0 0; fontSize: 14.8px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ v.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footprint -->
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 118px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 4vw, 72px); alignItems: center;">
+      <div>
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Footprint</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Tunis head office, three regional bases</h2>
+        <p style="margin: 22px 0 0; fontSize: 16.5px; lineHeight: 1.66; color: #4A443F; maxWidth: 48ch; textWrap: pretty;">Our head office sits in Centre Urbain Nord, Tunis. Regional operations experts in India, Dubai and Tunisia handle local requirements — documentation rules, supplier relationships and time zones — so a traveller in any of our markets reaches someone who already knows the answer.</p>
+        <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(110px, 1fr)); gap: 18px; marginTop: 34px;">
+          <sc-for list="{{ figures }}" as="f" hint-placeholder-count="4">
+            <div>
+              <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: clamp(26px, 2.6vw, 36px); lineHeight: 1; color: #111111; letterSpacing: -0.02em;">{{ f.value }}</div>
+              <div style="marginTop: 7px; fontSize: 13px; lineHeight: 1.45; color: #5C554F;">{{ f.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <a href="/destinations" style="display: inline-flex; alignItems: center; gap: 8px; marginTop: 32px; fontSize: 15px; fontWeight: 600; color: #B84D00;">
+          See where we fly
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        </a>
+      </div>
+      <div>
+        <div data-reveal="2" data-reveal-mode="scale" data-zoom="1" style="borderRadius: 20px; overflow: hidden; border: 1px solid #ECE7E0; background: #F6F2EC;">
+          <div style="aspectRatio: 4 / 3; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&h=675&fit=crop" alt="A light-filled open-plan office with a long meeting table" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.86);" />
+          </div>
+        </div>
+        <p style="margin: 12px 0 0; fontSize: 12.5px; color: #7C736B;">Swap in a photograph of the Ahlan-Trips office or team when you have one.</p>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Let's look at your travel programme"
+    body="Share how your organisation travels today and we will show you what a managed Ahlan-Trips programme would change."
+    primaryLabel="Talk to Ahlan-Trips"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      mvv: [
+        { label: "Mission", statement: "Take the whole burden of business travel off our clients' desks.", body: "One partner for flights, hotels, transport, documentation and events — booked to policy, reported in one place, supported around the clock." },
+        { label: "Vision", statement: "A travel programme in Tunis held to the same standard as one in London.", body: "Regional expertise should not mean a compromise on content, controls or data. We build to international standards from an African base." },
+        { label: "Philosophy", statement: "Travel decisions belong to our clients; travel problems belong to us.", body: "Our job is to make the right choice the easy one for travellers, and to absorb the disruption when plans break." }
+      ],
+      values: [
+        { num: "01", title: "Answer, every time", body: "Named people on your programme, reachable in Arabic, French or English — on WhatsApp, on local time, and 24/7 when travellers are moving." },
+        { num: "02", title: "Negotiate, never mark up", body: "Rates come from direct relationships with 500+ airlines and hotel chains and are applied automatically to every booking." },
+        { num: "03", title: "Show the numbers", body: "Spend, savings, compliance and supplier performance reported clearly enough for finance to act on without a translator." },
+        { num: "04", title: "Protect the traveller", body: "Risk assessment before departure, alerts during the trip, and rebooking the moment something fails." },
+        { num: "05", title: "Know the ground", body: "Documentation rules, local suppliers, border practice and seasonality in our markets — knowledge a platform alone cannot carry." }
+      ],
+      figures: [
+        { value: "140+", label: "Countries served" },
+        { value: "5,000+", label: "Active enterprise clients" },
+        { value: "500+", label: "Airline & hotel partners" },
+        { value: "24/7", label: "Traveller support" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

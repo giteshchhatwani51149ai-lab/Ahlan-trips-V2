@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Visa Assistance — Ahlan-Trips</title>
+<meta name="description" content="Visa assistance for business travel from Ahlan-Trips, Tunis — requirement checks by nationality and route, document preparation, appointment booking and status follow-up." />
+<meta property="og:title" content="Visa Assistance for Business Travel — Ahlan-Trips" />
+<meta property="og:description" content="Requirements checked, documents prepared, appointments booked and progress chased, so travel dates do not slip on paperwork." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Visa Assistance"
+    eyebrow="Visa assistance"
+    title="Paperwork should not move your travel dates"
+    lede="Requirements change by nationality, by route and by season. We check them against the actual traveller and the actual itinerary, prepare the documentation, book the appointment and follow the application until it is issued."
+    ctaLabel="Check a requirement"
+    heroImg="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&h=800&fit=crop"
+    heroAlt="A passport, notebook, camera and bag laid out on a folded paper map"></dc-import>
+
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 5vw, 80px); alignItems: start;">
+      <div>
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">How it works</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Four steps, started as soon as the trip is approved</h2>
+        <p style="margin: 22px 0 0; fontSize: 16.4px; lineHeight: 1.66; color: #4A443F; maxWidth: 44ch; textWrap: pretty;">Because visa work sits inside the travel programme, it starts the moment a trip is approved rather than when someone notices the deadline.</p>
+      </div>
+      <ol style="listStyle: none; margin: 0; padding: 0; display: flex; flexDirection: column;" data-stagger="1">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <li style="display: grid; gridTemplateColumns: 46px 1fr; gap: clamp(14px, 2vw, 24px); padding: clamp(20px, 2.4vw, 28px) 0; borderTop: 1px solid #ECE7E0;">
+            <span style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 26px; color: #D8CFC4; lineHeight: 1;">{{ s.num }}</span>
+            <div style="minWidth: 0;">
+              <h3 style="margin: 0; fontSize: 17.5px; fontWeight: 600; color: #111111;">{{ s.title }}</h3>
+              <p style="margin: 9px 0 0; fontSize: 14.8px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ s.body }}</p>
+            </div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section style="background: #FBF8F4; borderTop: 1px solid #F0EAE2; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 580px; marginBottom: clamp(28px, 3.5vw, 44px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Covered</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">What we take off your desk</h2>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(14px, 1.8vw, 20px);" data-stagger="1">
+        <sc-for list="{{ covered }}" as="c" hint-placeholder-count="6">
+          <div style="background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 16px; padding: clamp(20px, 2.2vw, 26px);">
+            <h3 style="margin: 0; fontSize: 16.5px; fontWeight: 600; color: #111111;">{{ c.title }}</h3>
+            <p style="margin: 9px 0 0; fontSize: 14.5px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ c.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: clamp(28px, 3vw, 40px) 0 0; maxWidth: 70ch; fontSize: 14.5px; lineHeight: 1.65; color: #7C736B; textWrap: pretty;">Visas are granted by the issuing authority, not by us. We will tell you plainly when a timeline is tight or an application is unlikely, so you can plan around it rather than hope.</p>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Need a requirement checked?"
+    body="Send the traveller's nationality, the destinations and the dates. We will come back with the requirements, the lead times and what we need from you."
+    primaryLabel="Ask about a visa"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      steps: [
+        { num: "01", title: "Requirement check", body: "We check what the traveller's passport needs for the full itinerary, including transit points people usually forget." },
+        { num: "02", title: "Document preparation", body: "Forms completed, invitation and support letters drafted, photo and financial requirements confirmed against the current rules." },
+        { num: "03", title: "Appointment booking", body: "Consulate or visa-centre slots booked as early as the calendar allows, with the traveller briefed on what to bring." },
+        { num: "04", title: "Follow-up to issue", body: "We track the application, chase where chasing is possible, and tell your travel manager if a date is at risk." }
+      ],
+      covered: [
+        { title: "Business visas", body: "Single and multiple-entry business travel applications for our clients' most-used routes." },
+        { title: "Transit requirements", body: "Transit and airside rules checked for every connection on the itinerary, not just the final destination." },
+        { title: "Supporting letters", body: "Invitation letters, employer letters and itinerary documentation drafted to the consulate's format." },
+        { title: "Appointment management", body: "Slots booked, rescheduled when travel moves, and co-ordinated for groups travelling together." },
+        { title: "Group and event delegates", body: "Bulk applications for conferences and incentive trips, tracked as one batch with one status view." },
+        { title: "Renewals and validity checks", body: "Passport validity, blank-page counts and existing visa expiry reviewed before a trip is booked." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

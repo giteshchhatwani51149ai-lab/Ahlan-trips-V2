@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Destinations — Ahlan-Trips</title>
+<meta name="description" content="Ahlan-Trips destinations — corporate travel across Tunisia, North Africa, sub-Saharan Africa, Europe, the Middle East and beyond, with regional expertise in India, Dubai and Tunisia." />
+<meta property="og:title" content="Destinations — Ahlan-Trips Corporate Travel" />
+<meta property="og:description" content="Travel programmes in 140+ countries, with the deepest expertise across Tunisia, Africa, Europe and the Middle East." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Destinations"
+    eyebrow="Destinations"
+    title="From Tunis to 140+ countries"
+    lede="Our programmes reach wherever our clients need to be. Our deepest knowledge — suppliers, documentation practice, seasonality — sits in the corridors our clients fly most."
+    ctaLabel="Ask about a route"
+    heroImg="assets/hero-destination.png"
+    heroAlt="Aerial view of a coastline at dawn from cruising altitude"></dc-import>
+
+  <!-- Regions -->
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 600px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Regions</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Where our expertise runs deepest</h2>
+      </div>
+      <div style="display: flex; flexDirection: column;" data-stagger="1">
+        <sc-for list="{{ regions }}" as="r" hint-placeholder-count="5">
+          <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 3vw, 56px); paddingTop: clamp(24px, 2.8vw, 34px); paddingBottom: clamp(24px, 2.8vw, 34px); borderTop: 1px solid #ECE7E0; alignItems: start;">
+            <div>
+              <div style="display: flex; alignItems: baseline; gap: 13px;">
+                <span style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 20px; color: #D8CFC4;">{{ r.num }}</span>
+                <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(22px, 2.3vw, 30px); lineHeight: 1.18; letterSpacing: -0.015em; color: #111111;">{{ r.title }}</h3>
+              </div>
+              <p style="margin: 14px 0 0; fontSize: 15.6px; lineHeight: 1.65; color: #4A443F; maxWidth: 42ch; textWrap: pretty;">{{ r.body }}</p>
+            </div>
+            <div style="display: flex; flexWrap: wrap; gap: 8px; alignContent: start;">
+              <sc-for list="{{ r.cities }}" as="city" hint-placeholder-count="6">
+                <span style="border: 1px solid #E6E0D8; background: #FBF8F4; borderRadius: 999px; padding: 8px 14px; fontSize: 13.2px; fontWeight: 500; color: #2B2724;">{{ city }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo band -->
+  <section style="background: #FBF8F4; padding: clamp(56px, 7vw, 100px) 0;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 44px) clamp(28px, 3vw, 40px);">
+      <div style="display: flex; flexWrap: wrap; alignItems: baseline; justifyContent: space-between; gap: 16px 32px;">
+        <h2 style="margin: 0; maxWidth: 24ch; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(26px, 3.2vw, 44px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Corridors our clients fly most</h2>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" aria-label="Scroll corridors left" data-rail-btn="corr" data-rail-dir="prev" style="width: 40px; height: 40px; display: grid; placeItems: center; background: #ffffff; border: 1px solid #E6E0D8; borderRadius: 999px; cursor: pointer; color: #2B2724; transition: background .16s, border-color .16s;" style-hover="background: #FFF3E9; border-color: #FFD9B8;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button type="button" aria-label="Scroll corridors right" data-rail-btn="corr" data-rail-dir="next" style="width: 40px; height: 40px; display: grid; placeItems: center; background: #ffffff; border: 1px solid #E6E0D8; borderRadius: 999px; cursor: pointer; color: #2B2724; transition: background .16s, border-color .16s;" style-hover="background: #FFF3E9; border-color: #FFD9B8;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative;">
+    <div aria-hidden="true" style="position: absolute; top: 0; right: 0; bottom: 0; width: clamp(28px, 6vw, 72px); background: linear-gradient(90deg, rgba(251,248,244,0), #FBF8F4); pointerEvents: none; zIndex: 2;"></div>
+    <div data-rail="corr" style="overflow-x: auto; padding: 4px clamp(18px, 4vw, 44px) 12px;">
+      <div style="maxWidth: 1280px; margin: 0 auto; display: flex; gap: clamp(14px, 1.6vw, 22px);">
+        <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
+          <div data-zoom="1" style="flex: 0 0 auto; width: clamp(230px, 26vw, 300px);">
+            <div style="position: relative; aspectRatio: 3 / 4; borderRadius: 16px; overflow: hidden; background: #2A2724;">
+              <sc-if value="{{ c.hasPhoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ c.img }}" alt="{{ c.alt }}" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.84);" />
+              </sc-if>
+              <sc-if value="{{ c.needsPhoto }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #22201E 0 10px, #1A1917 10px 20px); display: grid; placeItems: center; padding: 22px;">
+                  <span style="fontFamily: ui-monospace, 'SFMono-Regular', Menlo, monospace; fontSize: 11px; lineHeight: 1.7; letterSpacing: .04em; color: #7C736B; textAlign: center; textTransform: uppercase;">{{ c.note }}</span>
+                </div>
+              </sc-if>
+              <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 44%, rgba(17,17,17,.8) 100%);"></div>
+              <div style="position: absolute; left: 18px; right: 18px; bottom: 18px; color: #ffffff;">
+                <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #FFD9B8;">{{ c.region }}</div>
+                <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 24px; marginTop: 5px;">{{ c.city }}</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Regional bases -->
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px);">
+      <div style="maxWidth: 580px; marginBottom: clamp(28px, 3.5vw, 44px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">Regional bases</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(26px, 3.2vw, 44px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">Experts on the ground, not on a rota</h2>
+        <p style="margin: 20px 0 0; fontSize: 16.2px; lineHeight: 1.66; color: rgba(255,255,255,.72); textWrap: pretty;">Alongside the Tunis head office, regional operations experts handle local requirements in their own markets — documentation practice, supplier relationships and time zones included.</p>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(20px, 2.6vw, 32px);" data-stagger="1">
+        <sc-for list="{{ bases }}" as="b" hint-placeholder-count="3">
+          <div style="borderTop: 2px solid #FF6B00; paddingTop: 20px;">
+            <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: 26px; letterSpacing: -0.015em;">{{ b.place }}</h3>
+            <p style="margin: 11px 0 0; fontSize: 14.8px; lineHeight: 1.64; color: rgba(255,255,255,.66); textWrap: pretty;">{{ b.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Flying somewhere not listed?"
+    body="Our programmes cover 140+ countries. Send the route and we will confirm what content, documentation and support we can put behind it."
+    primaryLabel="Ask about a route"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      regions: [
+        { num: "01", title: "Tunisia", body: "Our home market. Domestic business travel, inbound delegations and the documentation practice that catches most visitors out.", cities: ["Tunis", "Sfax", "Sousse", "Djerba", "Monastir", "Tozeur"] },
+        { num: "02", title: "North Africa", body: "The corridor our clients travel most after Tunisia, with suppliers and border practice we work with weekly.", cities: ["Casablanca", "Algiers", "Cairo", "Rabat", "Tripoli", "Marrakech"] },
+        { num: "03", title: "Sub-Saharan Africa", body: "Routings that often need two carriers and a visa plan. We build them as one itinerary with one point of support.", cities: ["Lagos", "Nairobi", "Accra", "Abidjan", "Dakar", "Johannesburg"] },
+        { num: "04", title: "Europe", body: "The most-travelled business destinations for our Tunisian and African clients, on negotiated corporate content.", cities: ["Paris", "London", "Frankfurt", "Milan", "Madrid", "Brussels"] },
+        { num: "05", title: "Middle East & beyond", body: "Gulf business travel supported from our Dubai base, plus the long-haul routes our enterprise clients run.", cities: ["Dubai", "Doha", "Riyadh", "Istanbul", "Mumbai", "Singapore"] }
+      ],
+      cards: [
+        { city: "Sidi Bou Saïd", region: "Tunisia", hasPhoto: true, needsPhoto: false, note: "", img: "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?w=600&h=800&fit=crop", alt: "The blue-and-white terraces of Sidi Bou Saïd above the Gulf of Tunis" },
+        { city: "Dubai", region: "Middle East", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=800&fit=crop", alt: "Dubai skyline at dusk" },
+        { city: "Paris", region: "Europe", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=800&fit=crop", alt: "A Parisian avenue leading to the Arc de Triomphe" },
+        { city: "London", region: "Europe", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=800&fit=crop", alt: "An aerial view of London along the Thames" },
+        { city: "Istanbul", region: "Middle East", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=600&h=800&fit=crop", alt: "Istanbul skyline across the water" },
+        { city: "Casablanca", region: "North Africa", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&h=800&fit=crop", alt: "Coastal architecture in Morocco" }
+      ],
+      bases: [
+        { place: "Tunis", body: "Head office in Centre Urbain Nord. Programme management, supplier negotiation and client service for Tunisia and North Africa." },
+        { place: "Dubai", body: "Gulf operations — supplier relationships, Middle East documentation and support on regional business hours." },
+        { place: "India", body: "Regional operations experts covering South Asian routings, local requirements and round-the-clock support cover." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

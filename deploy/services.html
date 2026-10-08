@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services — Ahlan-Trips</title>
+<meta name="description" content="Ahlan-Trips services — corporate travel, travel management, flights, hotels, airport transfers, visa assistance, meetings & events, leisure travel and traveller support from Tunis." />
+<meta property="og:title" content="Services — Ahlan-Trips Corporate Travel, Tunis" />
+<meta property="og:description" content="Nine travel disciplines, one managed programme: corporate travel, policy and analytics, MICE, visas, transport and leisure." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Services"
+    eyebrow="Services"
+    title="Everything a trip needs, under one programme"
+    lede="Nine disciplines that make corporate travel work — from the fare negotiation before a booking to the rebooking at 02:00. Take them as a managed programme or pick the parts you need."
+    ctaLabel="Discuss your requirements"
+    heroImg="assets/slider1-2000.jpg"
+    heroAlt="A business traveller waiting in a departure lounge as an aircraft takes off"></dc-import>
+
+  <!-- Core programme -->
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 110px) clamp(18px, 4vw, 44px) clamp(40px, 5vw, 64px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 600px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">The programme</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Four services that carry the programme</h2>
+        <p style="margin: 20px 0 0; fontSize: 16.5px; lineHeight: 1.66; color: #4A443F; textWrap: pretty;">These four have their own pages because they are where most of the work — and most of the saving — happens.</p>
+      </div>
+
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(16px, 2vw, 24px);" data-stagger="1">
+        <sc-for list="{{ core }}" as="c" hint-placeholder-count="4">
+          <a href="{{ c.href }}" style="display: flex; flexDirection: column; border: 1px solid #ECE7E0; borderRadius: 20px; overflow: hidden; background: #ffffff; color: inherit; transition: box-shadow .26s, transform .26s, border-color .26s;" data-zoom="1" data-lift="1" style-hover="box-shadow: 0 26px 60px rgba(17,17,17,.13); border-color: #E0D8CE;">
+            <div style="position: relative; aspectRatio: 16 / 9; background: #2A2724;">
+              <img src="{{ c.img }}" alt="{{ c.alt }}" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.86);" />
+              <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 45%, rgba(17,17,17,.62) 100%);"></div>
+              <div style="position: absolute; left: 18px; bottom: 16px; width: 42px; height: 42px; display: grid; placeItems: center; background: rgba(255,255,255,.95); borderRadius: 12px; color: #B84D00;" dangerouslySetInnerHTML="{{ c.icon }}"></div>
+            </div>
+            <div style="padding: clamp(22px, 2.4vw, 30px); display: flex; flexDirection: column; flexGrow: 1;">
+              <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(21px, 2vw, 27px); lineHeight: 1.18; letterSpacing: -0.012em; color: #111111;">{{ c.title }}</h3>
+              <p style="margin: 12px 0 0; fontSize: 15px; lineHeight: 1.64; color: #5C554F; textWrap: pretty;">{{ c.body }}</p>
+              <ul style="listStyle: none; margin: 18px 0 0; padding: 0; display: flex; flexDirection: column; gap: 8px;">
+                <sc-for list="{{ c.points }}" as="pt" hint-placeholder-count="3">
+                  <li style="display: flex; gap: 10px; fontSize: 14px; lineHeight: 1.5; color: #4A443F;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flexShrink: 0; marginTop: 3px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    {{ pt }}
+                  </li>
+                </sc-for>
+              </ul>
+              <span style="display: inline-flex; alignItems: center; gap: 7px; marginTop: 22px; fontSize: 14.5px; fontWeight: 600; color: #B84D00;">
+                {{ c.cta }}
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supporting services -->
+  <section style="background: #FBF8F4; borderTop: 1px solid #F0EAE2; padding: clamp(56px, 7vw, 100px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 580px; marginBottom: clamp(28px, 3.5vw, 44px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Also included</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">The work behind the booking</h2>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(262px, 1fr)); gap: clamp(14px, 1.8vw, 20px);" data-stagger="1">
+        <sc-for list="{{ extras }}" as="e" hint-placeholder-count="5">
+          <div style="background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 16px; padding: clamp(20px, 2.2vw, 26px); transition: border-color .22s, box-shadow .22s;" style-hover="border-color: #E0D8CE; box-shadow: 0 14px 34px rgba(17,17,17,.08);">
+            <div style="color: #B84D00; marginBottom: 14px;" dangerouslySetInnerHTML="{{ e.icon }}"></div>
+            <h3 style="margin: 0; fontSize: 17px; fontWeight: 600; color: #111111;">{{ e.title }}</h3>
+            <p style="margin: 9px 0 0; fontSize: 14.5px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ e.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="AudienceFlip" bg="#ffffff" hint-size="100%,760px"></dc-import>
+
+  <!-- How engagement works -->
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px);">
+      <div style="maxWidth: 560px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">Getting started</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">From first call to first booking</h2>
+      </div>
+      <ol style="listStyle: none; margin: 0; padding: 0; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(230px, 1fr)); gap: clamp(22px, 3vw, 40px);" data-stagger="1">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+          <li style="borderTop: 1px solid #2E2B28; paddingTop: 22px;">
+            <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 15px; color: #FF8A33; letterSpacing: .12em;">{{ st.num }}</div>
+            <h3 style="margin: 14px 0 0; fontSize: 18px; fontWeight: 600;">{{ st.title }}</h3>
+            <p style="margin: 10px 0 0; fontSize: 14.6px; lineHeight: 1.64; color: rgba(255,255,255,.66); textWrap: pretty;">{{ st.body }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Not sure which parts you need?"
+    body="Describe how your people travel today. We will tell you which services would change the numbers and which you can skip."
+    primaryLabel="Talk to our team"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const svg = h => ({ __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + h + '</svg>' });
+const I = {
+  briefcase: svg('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>'),
+  policy: svg('<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'),
+  users: svg('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'),
+  passport: svg('<rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/>'),
+  plane: svg('<path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a.5.5 0 0 0-.5.8l2.9 3.3-2 2-2.2-.5a.5.5 0 0 0-.5.8l3 3 3 3a.5.5 0 0 0 .8-.5l-.5-2.2 2-2 3.3 2.9a.5.5 0 0 0 .8-.5Z"/>'),
+  bed: svg('<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M2 16h20"/>'),
+  car: svg('<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/>'),
+  chart: svg('<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>'),
+  shield: svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'),
+  receipt: svg('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'),
+  phone: svg('<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.82 19.79 19.79 0 0 1 0 1.19 2 2 0 0 1 2 0h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L6.91 7.91a16 16 0 0 0 6.07 6.07l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 15z"/>')
+};
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      core: [
+        { title: "Corporate Travel", href: "/corporate-travel", cta: "Corporate travel in detail", icon: I.briefcase,
+          img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=450&fit=crop", alt: "Aircraft wing above cloud cover",
+          body: "End-to-end management of every booking your people make — flights, accommodation and ground transport on negotiated rates, booked to your policy.",
+          points: ["Negotiated fares with 500+ airlines and hotel chains", "Flight, rail, hotel and transfer booking in one place", "A named team reachable in Arabic, French or English"] },
+        { title: "Travel Management", href: "/travel-management", cta: "Travel management in detail", icon: I.policy,
+          img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop", alt: "Spend analytics on a laptop screen",
+          body: "The layer above the bookings: policy design, approval workflows, spend analytics and duty of care across every channel your organisation uses.",
+          points: ["Automated policy guardrails and approvals", "Spend, savings and compliance reporting", "Traveller tracking and 24/7 duty of care"] },
+        { title: "Meetings & Events", href: "/meetings-events", cta: "Meetings & events in detail", icon: I.users,
+          img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=450&fit=crop", alt: "An audience watching a presentation on a large screen",
+          body: "MICE from brief to debrief: venue sourcing and contracting, delegate travel, on-site management and a single reconciled invoice.",
+          points: ["Venue sourcing and rate negotiation", "Delegate travel and accommodation blocks", "On-site event management and logistics"] },
+        { title: "Visa Assistance", href: "/visa-assistance", cta: "Visa assistance in detail", icon: I.passport,
+          img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=450&fit=crop", alt: "A passport and notebook laid out on a folded paper map",
+          body: "Requirements checked against the traveller's passport and route, documents prepared, appointments booked and progress chased until the visa is issued.",
+          points: ["Route and nationality requirement checks", "Document preparation and appointment booking", "Status follow-up ahead of departure"] }
+      ],
+      extras: [
+        { title: "Flight booking", icon: I.plane, body: "Corporate fares, flexible tickets, schedule changes and seat preferences held against each traveller's profile." },
+        { title: "Hotel programme", icon: I.bed, body: "Negotiated corporate rates with preferred properties in your most-travelled cities, with benefits applied automatically." },
+        { title: "Airport transfers", icon: I.car, body: "Meet-and-greet, chauffeur and car hire coordinated with flight times — rebooked automatically when a flight moves." },
+        { title: "Leisure travel", icon: I.plane, body: "Holidays, incentive trips and family travel for your people, handled by the team that already knows them." },
+        { title: "Travel analytics", icon: I.chart, body: "Dashboards and exportable reports covering spend, savings, supplier performance and policy compliance." },
+        { title: "Duty of care", icon: I.shield, body: "Pre-trip risk assessment, live alerts, traveller tracking and emergency assistance wherever your people are." },
+        { title: "Accounting & finance", icon: I.receipt, body: "Expense tracking, invoice processing and reconciliation so travel lands in your books correctly the first time." },
+        { title: "Executive assistance", icon: I.phone, body: "Dedicated support for leadership travel — complex itineraries, late changes and discretion as standard." }
+      ],
+      steps: [
+        { num: "STEP 01", title: "Discovery call", body: "Thirty minutes on how your people travel today: routes, volumes, who books, what keeps breaking." },
+        { num: "STEP 02", title: "Programme proposal", body: "We come back with the supplier content, policy structure and service model we would put in place, and what it changes." },
+        { num: "STEP 03", title: "Setup", body: "Traveller profiles, policy rules, approvers and reporting configured — and your named Ahlan-Trips contacts introduced." },
+        { num: "STEP 04", title: "Live, then reviewed", body: "Bookings start flowing. We review spend, savings and compliance with you on a regular cycle and tune the programme." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

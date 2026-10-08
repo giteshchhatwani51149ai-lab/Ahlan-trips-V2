@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Travel Management — Ahlan-Trips</title>
+<meta name="description" content="Travel management from Ahlan-Trips, Tunis — travel policy design, automated approvals, spend analytics, duty of care and HR/ERP integration for organisations across Africa and beyond." />
+<meta property="og:title" content="Travel Management & Travel Policy — Ahlan-Trips" />
+<meta property="og:description" content="Policy, approvals, analytics and duty of care — the management layer above your bookings." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Travel Management"
+    eyebrow="Travel management"
+    title="The layer above the bookings"
+    lede="Booking a flight is the easy part. Travel management is everything around it — the policy that decides what is allowed, the approvals that keep it honest, the numbers that prove it worked and the cover that protects people when it does not."
+    ctaLabel="Review your programme"
+    heroImg="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=800&fit=crop"
+    heroAlt="Travel spend analytics displayed on a screen"></dc-import>
+
+  <!-- Four capabilities -->
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 600px; marginBottom: clamp(32px, 4vw, 52px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Capabilities</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Four systems, one programme</h2>
+      </div>
+      <div style="display: flex; flexDirection: column; gap: clamp(28px, 3.5vw, 48px);" data-stagger="1">
+        <sc-for list="{{ caps }}" as="c" hint-placeholder-count="4">
+          <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(20px, 3vw, 56px); paddingTop: clamp(26px, 3vw, 40px); borderTop: 1px solid #ECE7E0; alignItems: start;">
+            <div>
+              <div style="display: flex; alignItems: center; gap: 14px;">
+                <span style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 24px; color: #D8CFC4; lineHeight: 1;">{{ c.num }}</span>
+                <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(22px, 2.3vw, 32px); lineHeight: 1.16; letterSpacing: -0.015em; color: #111111;">{{ c.title }}</h3>
+              </div>
+              <p style="margin: 16px 0 0; fontSize: 16px; lineHeight: 1.66; color: #4A443F; maxWidth: 44ch; textWrap: pretty;">{{ c.body }}</p>
+            </div>
+            <ul style="listStyle: none; margin: 0; padding: 0; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px 26px;">
+              <sc-for list="{{ c.points }}" as="pt" hint-placeholder-count="4">
+                <li style="display: flex; gap: 10px; fontSize: 14.6px; lineHeight: 1.55; color: #4A443F;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flexShrink: 0; marginTop: 4px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  {{ pt }}
+                </li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform visual -->
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px); display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 4vw, 72px); alignItems: center;">
+      <div>
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">The platform</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">Executive-ready dashboards, on any device</h2>
+        <p style="margin: 22px 0 0; fontSize: 16.4px; lineHeight: 1.66; color: rgba(255,255,255,.72); maxWidth: 46ch; textWrap: pretty;">Real-time spend analytics, traveller tracking and exportable reports, connected securely to your existing HR, ERP and expense tools via API — so user provisioning and expense syncing stop being manual work.</p>
+        <ul style="listStyle: none; margin: 26px 0 0; padding: 0; display: flex; flexDirection: column; gap: 12px;">
+          <sc-for list="{{ platform }}" as="p" hint-placeholder-count="4">
+            <li style="display: flex; gap: 11px; fontSize: 15px; lineHeight: 1.55; color: rgba(255,255,255,.84);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8A33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flexShrink: 0; marginTop: 4px;" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              {{ p }}
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+      <div data-reveal="2" data-reveal-mode="scale" style="borderRadius: 20px; overflow: hidden; border: 1px solid #2E2B28; background: #0E0D0C;">
+        <img src="assets/ahlan-solutions-portal.png" alt="Ahlan-Trips analytics and booking portal" loading="lazy" style="width: 100%; display: block;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Duty of care -->
+  <section style="background: #FBF8F4; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 580px; marginBottom: clamp(28px, 3.5vw, 44px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Duty of care</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Rock-solid in a restless world</h2>
+        <p style="margin: 20px 0 0; fontSize: 16.4px; lineHeight: 1.66; color: #4A443F; textWrap: pretty;">Your obligation to a travelling employee does not pause when the airport closes. Duty of care is how we discharge it on your behalf.</p>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(14px, 1.8vw, 20px);" data-stagger="1">
+        <sc-for list="{{ care }}" as="c" hint-placeholder-count="4">
+          <div style="background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 16px; padding: clamp(22px, 2.4vw, 28px);">
+            <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #B84D00;">{{ c.phase }}</div>
+            <h3 style="margin: 14px 0 0; fontSize: 17px; fontWeight: 600; color: #111111;">{{ c.title }}</h3>
+            <p style="margin: 9px 0 0; fontSize: 14.6px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ c.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Bring us your current programme"
+    body="Send last year's travel spend and your policy as it stands. We will show you where the leakage is before you commit to anything."
+    primaryLabel="Request a programme review"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      caps: [
+        { num: "01", title: "Centralised policy management", body: "Every booking channel aligned under one strategy, with the rules enforced where the decision is made rather than audited afterwards.",
+          points: ["Cabin, fare and rate limits by role or route", "Preferred supplier hierarchy applied automatically", "Approval workflows with named approvers", "Out-of-policy bookings flagged with a reason"] },
+        { num: "02", title: "Spend and savings analytics", body: "Visibility into where travel money goes, which suppliers earn their rates, and what the programme actually saved.",
+          points: ["Spend by entity, cost centre and traveller", "Savings measured against market fares", "Supplier performance and contract usage", "Exportable reports for finance and audit"] },
+        { num: "03", title: "Supplier and content strategy", body: "Direct relationships with 500+ airlines, hotel chains and ground transport providers, negotiated for your actual travel pattern.",
+          points: ["Negotiated corporate fares and hotel rates", "Content applied across every booking channel", "Annual renegotiation using your own data", "Benefits and upgrades configured per property"] },
+        { num: "04", title: "Systems integration", body: "The programme connects to the tools your organisation already runs, so travel data is not a separate silo.",
+          points: ["HR portal integration for user provisioning", "ERP and expense platform syncing via API", "Single sign-on and secure access control", "Cost-centre coding on consolidated invoices"] }
+      ],
+      platform: [
+        "Real-time spend analytics and policy compliance views",
+        "Traveller tracking for duty-of-care obligations",
+        "Exportable reports accessible on desktop and mobile",
+        "Secure API connections to HR, ERP and expense systems"
+      ],
+      care: [
+        { phase: "Before", title: "Pre-trip risk assessment", body: "Destination risk, documentation and health requirements checked against the itinerary before the traveller leaves." },
+        { phase: "During", title: "Live alerts", body: "Weather, security and disruption alerts pushed to the traveller and to your travel manager as conditions change." },
+        { phase: "During", title: "Traveller tracking", body: "A current view of who is where, so you can act on an incident without calling round the organisation." },
+        { phase: "When it breaks", title: "24/7 emergency support", body: "Rebooking, re-routing and emergency assistance handled by our team at any hour, in any of our markets." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

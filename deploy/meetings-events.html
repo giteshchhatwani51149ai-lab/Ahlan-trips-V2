@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Meetings &amp; Events — Ahlan-Trips</title>
+<meta name="description" content="Meetings & events (MICE) management from Ahlan-Trips, Tunis — venue sourcing, contracting, delegate travel, on-site management and logistics for corporate events in Tunisia, Africa and worldwide." />
+<meta property="og:title" content="Meetings & Events (MICE) — Ahlan-Trips, Tunis" />
+<meta property="og:description" content="Venue sourcing, delegate travel and on-site event management for corporate meetings, conferences and incentive trips." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Meetings & Events"
+    eyebrow="Meetings &amp; events"
+    title="Events your delegates arrive at ready"
+    lede="A conference, an offsite or an incentive trip is a hundred decisions with one deadline. We source the venue, negotiate the contract, move the delegates, run the room and hand you one reconciled invoice."
+    ctaLabel="Brief us on your event"
+    heroImg="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&h=800&fit=crop"
+    heroAlt="Delegates seated in a darkened auditorium facing a lit stage"></dc-import>
+
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 580px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">What we handle</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">From brief to debrief</h2>
+      </div>
+      <ol style="listStyle: none; margin: 0; padding: 0; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(22px, 3vw, 40px);" data-stagger="1">
+        <sc-for list="{{ phases }}" as="p" hint-placeholder-count="5">
+          <li style="borderTop: 2px solid #FF6B00; paddingTop: 22px;">
+            <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .13em; textTransform: uppercase; color: #B84D00;">{{ p.num }}</div>
+            <h3 style="margin: 14px 0 0; fontSize: 18px; fontWeight: 600; color: #111111;">{{ p.title }}</h3>
+            <p style="margin: 10px 0 0; fontSize: 14.8px; lineHeight: 1.64; color: #5C554F; textWrap: pretty;">{{ p.body }}</p>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+      <div style="maxWidth: 580px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">Event types</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.4vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">Four formats we run most</h2>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: #262320; border: 1px solid #262320; borderRadius: 20px; overflow: hidden;" data-stagger="1">
+        <sc-for list="{{ types }}" as="t" hint-placeholder-count="4">
+          <div style="background: #171513; padding: clamp(24px, 2.8vw, 32px); transition: background .22s;" style-hover="background: #1F1C19;">
+            <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: 22px; letterSpacing: -0.012em;">{{ t.title }}</h3>
+            <p style="margin: 12px 0 0; fontSize: 14.5px; lineHeight: 1.62; color: rgba(255,255,255,.64); textWrap: pretty;">{{ t.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #FBF8F4; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(32px, 4vw, 72px); alignItems: center;">
+      <div>
+        <h2 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(26px, 3vw, 40px); lineHeight: 1.12; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Delegate travel is the part most events get wrong</h2>
+        <p style="margin: 20px 0 0; fontSize: 16.4px; lineHeight: 1.66; color: #4A443F; maxWidth: 46ch; textWrap: pretty;">Because we also run corporate travel programmes, delegate flights, visas, transfers and accommodation blocks are handled by the same team that holds the airline and hotel relationships — on the same negotiated rates, reported on the same invoice.</p>
+        <div style="display: flex; flexWrap: wrap; gap: 12px; marginTop: 30px;">
+          <a href="/corporate-travel" style="display: inline-flex; alignItems: center; border: 1px solid #E6E0D8; color: #2B2724; fontSize: 14.5px; fontWeight: 600; padding: 13px 22px; borderRadius: 999px; transition: background .18s;" style-hover="background: #ffffff;">Corporate travel</a>
+          <a href="/visa-assistance" style="display: inline-flex; alignItems: center; border: 1px solid #E6E0D8; color: #2B2724; fontSize: 14.5px; fontWeight: 600; padding: 13px 22px; borderRadius: 999px; transition: background .18s;" style-hover="background: #ffffff;">Visa assistance</a>
+        </div>
+      </div>
+      <div data-reveal="2" data-reveal-mode="scale" data-zoom="1" style="borderRadius: 20px; overflow: hidden; border: 1px solid #E6E0D8;">
+        <div style="aspectRatio: 4 / 3; overflow: hidden;">
+          <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=900&h=675&fit=crop" alt="Delegates gathered around a speaker during a corporate event" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.86);" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Have an event in the diary?"
+    body="Send the brief — dates, delegate numbers, rough budget and what the event has to achieve. We will come back with venue options and a cost model."
+    primaryLabel="Send your event brief"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      phases: [
+        { num: "Phase 01", title: "Brief and scope", body: "Objectives, dates, delegate numbers and budget turned into a specification we can actually source against." },
+        { num: "Phase 02", title: "Venue sourcing", body: "Shortlisted venues with comparable costs, capacities and dates — negotiated, not just forwarded from a brochure." },
+        { num: "Phase 03", title: "Contracting", body: "Rates, attrition clauses, cancellation terms and payment schedules negotiated and documented before deposits move." },
+        { num: "Phase 04", title: "Delegate travel", body: "Flights, visas, transfers and accommodation blocks booked and tracked, with every delegate's itinerary in one place." },
+        { num: "Phase 05", title: "On site and after", body: "Our team runs the logistics on the day, then reconciles every supplier into one invoice and a post-event report." }
+      ],
+      types: [
+        { title: "Conferences", body: "Multi-day programmes with plenary and breakout needs, delegate registration and travel at volume." },
+        { title: "Corporate offsites", body: "Leadership and team meetings where the venue, the rooms and the timing all have to work together." },
+        { title: "Incentive travel", body: "Reward trips that need to feel generous without the cost running past the budget you approved." },
+        { title: "Client and partner events", body: "Launches, roadshows and hospitality where the impression the event makes is the whole point." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

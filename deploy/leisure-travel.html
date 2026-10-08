@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Leisure Travel — Ahlan-Trips</title>
+<meta name="description" content="Leisure travel from Ahlan-Trips, Tunis — holidays, family travel and incentive trips for your people, arranged by the same team that runs their business travel." />
+<meta property="og:title" content="Leisure Travel — Ahlan-Trips, Tunis" />
+<meta property="og:description" content="Holidays, family travel and incentive trips, arranged on the same negotiated content as your corporate programme." />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <dc-import name="PageHero" hint-size="100%,480px"
+    crumb="Leisure Travel"
+    eyebrow="Leisure travel"
+    title="The same care, off the clock"
+    lede="Our global network does not stop being useful when the trip is personal. Holidays, family travel and incentive trips are arranged by the same consultants who know your travellers — on the same supplier relationships."
+    ctaLabel="Plan a trip"
+    heroImg="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=800&fit=crop"
+    heroAlt="Waves breaking on a quiet beach at sunset"></dc-import>
+
+  <section style="background: #ffffff; padding: clamp(60px, 8vw, 112px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div style="maxWidth: 600px; marginBottom: clamp(30px, 4vw, 48px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">What we arrange</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(28px, 3.6vw, 48px); lineHeight: 1.08; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Three reasons clients come back to us privately</h2>
+      </div>
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(16px, 2vw, 24px);" data-stagger="1">
+        <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="3">
+          <div style="border: 1px solid #ECE7E0; borderRadius: 20px; overflow: hidden; background: #ffffff; transition: box-shadow .26s, transform .26s;" data-zoom="1" data-lift="1" style-hover="box-shadow: 0 24px 54px rgba(17,17,17,.11);">
+            <div style="aspectRatio: 16 / 10; background: #2A2724;">
+              <img src="{{ k.img }}" alt="{{ k.alt }}" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.88);" />
+            </div>
+            <div style="padding: clamp(22px, 2.4vw, 28px);">
+              <h3 style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: 24px; letterSpacing: -0.012em; color: #111111;">{{ k.title }}</h3>
+              <p style="margin: 12px 0 0; fontSize: 15px; lineHeight: 1.64; color: #5C554F; textWrap: pretty;">{{ k.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #111111; color: #ffffff;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(56px, 7vw, 104px) clamp(18px, 4vw, 44px); display: grid; gridTemplateColumns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(28px, 4vw, 64px); alignItems: start;">
+      <div>
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">Why it is different</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(26px, 3.2vw, 44px); lineHeight: 1.1; letterSpacing: -0.02em; textWrap: balance;">A consultant, not a search box</h2>
+      </div>
+      <ul style="listStyle: none; margin: 0; padding: 0; display: flex; flexDirection: column; gap: 2px;" data-stagger="1">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4">
+          <li style="padding: clamp(18px, 2.2vw, 24px) 0; borderTop: 1px solid #2E2B28;">
+            <h3 style="margin: 0; fontSize: 17px; fontWeight: 600;">{{ r.title }}</h3>
+            <p style="margin: 9px 0 0; fontSize: 14.8px; lineHeight: 1.64; color: rgba(255,255,255,.66); textWrap: pretty;">{{ r.body }}</p>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <dc-import name="PageCTA" hint-size="100%,380px"
+    title="Planning something personal?"
+    body="Tell us who is travelling, roughly when, and what the trip is for. We will come back with options rather than a list of search results."
+    primaryLabel="Talk to a consultant"></dc-import>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      kinds: [
+        { title: "Holidays", body: "Flights, hotels, transfers and activities planned around what the trip is actually for — and re-planned by a human when something changes.", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=500&fit=crop", alt: "The Dubai skyline at dusk" },
+        { title: "Family travel", body: "Multi-generation trips, connecting flights that work with children, and accommodation checked rather than assumed.", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=500&fit=crop", alt: "A Parisian avenue leading to the Arc de Triomphe" },
+        { title: "Incentive trips", body: "Reward travel for teams — organised with the same cost discipline as a corporate event, but designed to feel generous.", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=500&fit=crop", alt: "An aerial view of London along the Thames" }
+      ],
+      reasons: [
+        { title: "Our corporate content still applies", body: "Relationships with 500+ airlines and hotel chains do not switch off for a personal booking." },
+        { title: "The same 24/7 support", body: "A cancelled flight on holiday is handled by the same team, at the same hour, with the same urgency." },
+        { title: "Documentation handled", body: "Visa requirements checked for the whole party and the whole route before anything is confirmed." },
+        { title: "Local knowledge where it counts", body: "Tunisia, North Africa, Europe and the Middle East are markets we work in daily, not destinations we read about." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

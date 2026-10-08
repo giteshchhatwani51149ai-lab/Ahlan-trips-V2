@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>body { margin: 0; }</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<section style="position: relative; background: #111111; color: #ffffff; overflow: hidden; fontFamily: 'Figtree', system-ui, sans-serif;">
+  <div data-depth-layer="1" style="position: absolute; inset: 0; overflow: hidden;">
+  <img src="{{ heroImg }}" alt="{{ heroAlt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; opacity: .34; filter: saturate(.62); willChange: transform;" data-ken="1" />
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(17,17,17,.97) 0%, rgba(17,17,17,.82) 50%, rgba(17,17,17,.6) 100%);"></div>
+  <div aria-hidden="true" style="position: absolute; top: -200px; left: -120px; width: 520px; height: 520px; borderRadius: 999px; background: radial-gradient(circle, rgba(255,107,0,.2), rgba(255,107,0,0) 66%);"></div>
+
+  <div style="position: relative; maxWidth: 1280px; margin: 0 auto; padding: clamp(66px, 9vw, 124px) clamp(18px, 4vw, 44px) clamp(56px, 7vw, 100px);">
+    <nav data-reveal="1" aria-label="Breadcrumb" style="fontSize: 12.5px; color: #9A938C; marginBottom: 22px;">
+      <a href="/" style="color: #9A938C; textDecoration: none;" style-hover="color: #FF8A33;">Home</a>
+      <span style="margin: 0 8px; color: #5C554F;">/</span>
+      <span style="color: #D6D1CA;">{{ crumb }}</span>
+    </nav>
+    <div data-reveal="1" style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">{{ eyebrow }}</div>
+    <h1 data-reveal="2" style="margin: 18px 0 0; maxWidth: 19ch; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(36px, 5.6vw, 76px); lineHeight: 1.05; letterSpacing: -0.022em; textWrap: balance;">{{ title }}</h1>
+    <p data-reveal="3" style="margin: 26px 0 0; maxWidth: 58ch; fontSize: clamp(16px, 1.25vw, 18.5px); lineHeight: 1.65; color: rgba(255,255,255,.78); textWrap: pretty;">{{ lede }}</p>
+    <div data-reveal="4" style="display: flex; flexWrap: wrap; gap: 12px; marginTop: 32px;">
+      <a href="mailto:info@ahlan-trips.com?subject=Enquiry%20from%20the%20Ahlan-Trips%20website" style="display: inline-flex; alignItems: center; gap: 9px; background: #FF6B00; color: #fff; fontSize: 15px; fontWeight: 600; padding: 15px 26px; borderRadius: 999px; textDecoration: none; transition: background .18s, transform .18s;" style-hover="background: #E55F00; transform: translateY(-2px);">
+        {{ ctaLabel }}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+      </a>
+      <a href="/services" style="display: inline-flex; alignItems: center; border: 1px solid rgba(255,255,255,.26); color: #fff; fontSize: 15px; fontWeight: 600; padding: 15px 26px; borderRadius: 999px; textDecoration: none; transition: background .18s;" style-hover="background: rgba(255,255,255,.1);">All services</a>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:520},&quot;crumb&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;About&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;eyebrow&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;About Ahlan-Trips&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Page title&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lede&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Talk to our team&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heroImg&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/hero-destination.png&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heroAlt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return {
+      crumb: p.crumb ?? p.title ?? "Page",
+      eyebrow: p.eyebrow ?? "Ahlan-Trips",
+      title: p.title ?? "Page title",
+      lede: p.lede ?? "",
+      ctaLabel: p.ctaLabel ?? "Talk to our team",
+      heroImg: p.heroImg ?? "assets/hero-destination.png",
+      heroAlt: p.heroAlt ?? ""
+    };
+  }
+}
+</script>
+</body>
+</html>

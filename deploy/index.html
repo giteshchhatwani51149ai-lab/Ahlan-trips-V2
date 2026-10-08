@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(location.protocol==='file:'){document.addEventListener('DOMContentLoaded',function(){document.body.innerHTML='<div style="font:16px/1.6 system-ui,sans-serif;max-width:560px;margin:12vh auto;padding:32px;border:1px solid #ECE7E0;border-radius:18px;color:#201E1D"><h1 style="font-size:22px;margin:0 0 12px">Open this site through a web server</h1><p>This page was opened directly from your computer (file://), and browsers block the parts it loads. Upload the folder to your host, or preview it locally:</p><pre style="background:#F6F2EC;padding:14px;border-radius:10px">cd deploy\nnpx serve .</pre><p>Then open <b>http://localhost:3000</b>.</p></div>';});}</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Ahlan-Trips — Corporate Travel Management, Tunis</title>
+<meta name="description" content="Ahlan-Trips is a corporate travel management company in Tunis, Tunisia. Managed business travel, travel policy, meetings and events, and visa assistance across 140+ countries." />
+<meta property="og:title" content="Ahlan-Trips — Corporate Travel Management, Tunis" />
+<meta property="og:description" content="Managed business travel for Tunisian, African and international organisations. 140+ countries, negotiated rates, 24/7 traveller support." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #ffffff; color: #201E1D; font-family: 'Figtree', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; }
+  ::selection { background: #FFD9B8; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<div style="overflow-x: hidden;">
+<dc-import name="SiteHeader" hint-size="100%,86px"></dc-import>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section aria-label="Ahlan-Trips corporate travel" style="position: relative; background: #0B0D10; color: #ffffff; minHeight: clamp(560px, 86vh, 860px); display: flex; alignItems: flex-end; overflow: hidden;">
+    <div data-depth-layer="1" style="position: absolute; inset: 0; overflow: hidden;">
+    <img src="assets/slider1-2000.jpg" alt="A business traveller in a departure lounge as an aircraft takes off" aria-hidden="{{ heroBg_corporate.hidden }}" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; objectPosition: center 45%; opacity: {{ heroBg_corporate.op }}; filter: {{ heroBg_corporate.filter }}; transition: opacity 1.1s ease, filter 1.4s ease; willChange: transform, opacity;" data-ken="1" />
+    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&amp;h=1100&amp;fit=crop" alt="A conference audience facing a lit stage" aria-hidden="{{ heroBg_events.hidden }}" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; objectPosition: center 45%; opacity: {{ heroBg_events.op }}; filter: {{ heroBg_events.filter }}; transition: opacity 1.1s ease, filter 1.4s ease; willChange: transform, opacity;" data-ken="1" />
+    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&amp;h=1100&amp;fit=crop" alt="A passport and notebook on a folded paper map" aria-hidden="{{ heroBg_visa.hidden }}" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; objectPosition: center 45%; opacity: {{ heroBg_visa.op }}; filter: {{ heroBg_visa.filter }}; transition: opacity 1.1s ease, filter 1.4s ease; willChange: transform, opacity;" data-ken="1" />
+    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&amp;h=1100&amp;fit=crop" alt="A palm tree and parasol on a tropical beach" aria-hidden="{{ heroBg_leisure.hidden }}" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; objectPosition: center 45%; opacity: {{ heroBg_leisure.op }}; filter: {{ heroBg_leisure.filter }}; transition: opacity 1.1s ease, filter 1.4s ease; willChange: transform, opacity;" data-ken="1" />
+    </div>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,13,16,.72) 0%, rgba(11,13,16,.34) 38%, rgba(11,13,16,.86) 100%);"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(90% 70% at 12% 78%, rgba(255,107,0,.22), rgba(255,107,0,0) 64%);"></div>
+
+    <div style="position: relative; width: 100%; maxWidth: 1280px; margin: 0 auto; padding: clamp(100px, 16vh, 180px) clamp(18px, 4vw, 44px) clamp(56px, 8vw, 96px); display: grid; gridTemplateColumns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(36px, 5vw, 72px); alignItems: end;">
+      <div style="minWidth: 0;">
+        <div data-reveal="1" style="display: inline-flex; alignItems: center; gap: 9px; border: 1px solid rgba(255,255,255,.26); borderRadius: 999px; padding: 7px 15px 7px 11px; fontSize: 12px; fontWeight: 600; letterSpacing: .07em; textTransform: uppercase; color: #FFD9B8; backdropFilter: blur(6px);">
+          <span data-pulse="1" style="width: 7px; height: 7px; borderRadius: 999px; background: #FF6B00; display: inline-block;"></span>
+          Corporate travel management · Tunis, Tunisia
+        </div>
+        <h1 data-reveal="2" style="margin: 26px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(40px, 6vw, 80px); lineHeight: 1.03; letterSpacing: -0.022em; textWrap: balance;">
+          Travel that moves<br />your business forward.
+        </h1>
+        <p data-reveal="3" style="margin: 26px 0 0; maxWidth: 620px; fontSize: clamp(16px, 1.3vw, 19px); lineHeight: 1.62; color: rgba(255,255,255,.82); textWrap: pretty;">
+          From our head office in Tunis, Ahlan-Trips manages business travel for Tunisian, African and international organisations — one programme covering flights, hotels, ground transport, visas and events across 140+ countries, with 24/7 traveller support.
+        </p>
+        <div data-reveal="4" style="display: flex; flexWrap: wrap; gap: 12px; marginTop: 34px;">
+          <a href="mailto:info@ahlan-trips.com?subject=Talk%20to%20our%20team%20%E2%80%94%20Ahlan-Trips" style="display: inline-flex; alignItems: center; gap: 9px; background: #FF6B00; color: #fff; fontSize: 15.5px; fontWeight: 600; padding: 16px 28px; borderRadius: 999px; whiteSpace: nowrap; boxShadow: 0 10px 30px rgba(255,107,0,.34); transition: background .18s, transform .18s;" style-hover="background: #E55F00; transform: translateY(-2px);">
+            Talk to our team
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+          </a>
+          <a href="/services" style="display: inline-flex; alignItems: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); color: #ffffff; fontSize: 15.5px; fontWeight: 600; padding: 16px 28px; borderRadius: 999px; whiteSpace: nowrap; backdropFilter: blur(8px); transition: background .18s, border-color .18s;" style-hover="background: rgba(255,255,255,.17); border-color: rgba(255,255,255,.5);">Explore our services</a>
+        </div>
+      </div>
+
+      <div data-reveal="4" data-reveal-mode="right" style="minWidth: 0; maxWidth: 520px; width: 100%; justifySelf: end; background: rgba(17,17,17,.42); border: 1px solid rgba(255,255,255,.18); borderRadius: 24px; padding: clamp(18px, 2vw, 24px); backdropFilter: blur(18px) saturate(140%); WebkitBackdropFilter: blur(18px) saturate(140%); boxShadow: 0 40px 80px -30px rgba(0,0,0,.6); boxSizing: border-box;">
+        <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: clamp(22px, 2vw, 27px); lineHeight: 1.15;">What do you need?</div>
+        <div role="radiogroup" aria-label="What do you need?" style="display: grid; gridTemplateColumns: 1fr 1fr; gap: 10px; marginTop: 16px;">
+          <sc-for list="{{ intents }}" as="it" hint-placeholder-count="4">
+            <button type="button" role="radio" aria-checked="{{ it.active }}" onClick="{{ it.pick }}" style="position: relative; display: flex; flexDirection: column; alignItems: flex-start; gap: 10px; minHeight: 112px; padding: 14px; textAlign: left; cursor: pointer; fontFamily: inherit; color: #ffffff; borderRadius: 16px; border: 1.5px solid {{ it.border }}; background: {{ it.bg }}; transform: {{ it.tf }}; boxShadow: {{ it.shadow }}; transition: background .25s, border-color .25s, transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;" style-hover="border-color: rgba(255,178,122,.8);">
+              <span style="width: 36px; height: 36px; display: grid; placeItems: center; borderRadius: 10px; background: {{ it.iconBg }}; color: {{ it.iconColor }}; transition: background .25s, color .25s;" dangerouslySetInnerHTML="{{ it.icon }}"></span>
+              <span>
+                <span style="display: block; fontSize: 15px; fontWeight: 600; lineHeight: 1.25;">{{ it.label }}</span>
+                <span style="display: block; marginTop: 3px; fontSize: 12.5px; lineHeight: 1.4; color: rgba(255,255,255,.7);">{{ it.sub }}</span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display: flex; flexWrap: wrap; alignItems: center; justifyContent: space-between; gap: 12px 16px; marginTop: 16px; paddingTop: 16px; borderTop: 1px solid rgba(255,255,255,.14);">
+          <p aria-live="polite" style="margin: 0; flex: 1 1 200px; fontSize: 13.5px; lineHeight: 1.5; color: rgba(255,255,255,.82); textWrap: pretty;">{{ intentDesc }}</p>
+          <a href="{{ intentHref }}" style="display: inline-flex; alignItems: center; gap: 8px; background: #ffffff; color: #111111; fontSize: 14.5px; fontWeight: 600; padding: 13px 20px; borderRadius: 999px; whiteSpace: nowrap; transition: transform .18s, background .18s;" style-hover="background: #FFF3E9; color: #111111; transform: translateY(-2px);">
+            Continue
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLIGHT SEARCH (overlapping card) ============ -->
+  <section aria-label="Flight search" style="background: #FBF8F4; padding: 0 clamp(18px, 4vw, 44px) clamp(48px, 6vw, 76px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div role="search" style="marginTop: clamp(-40px, -4vw, -72px); position: relative; zIndex: 10; background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 20px; boxShadow: 0 28px 70px rgba(17,17,17,.14); padding: clamp(18px, 2.2vw, 28px);">
+        <div style="display: flex; flexWrap: wrap; alignItems: center; justifyContent: space-between; gap: 14px; marginBottom: 18px;">
+          <div role="tablist" aria-label="Trip type" style="display: inline-flex; background: #F6F2EC; borderRadius: 999px; padding: 4px; gap: 2px;">
+            <sc-for list="{{ tripTabs }}" as="tab" hint-placeholder-count="3">
+              <button type="button" role="tab" aria-selected="{{ tab.active }}" onClick="{{ tab.pick }}" style="border: none; cursor: pointer; fontFamily: inherit; fontSize: 13.5px; fontWeight: 600; padding: 10px 18px; borderRadius: 999px; background: {{ tab.bg }}; color: {{ tab.color }}; boxShadow: {{ tab.shadow }}; transition: background .18s, color .18s;">{{ tab.label }}</button>
+            </sc-for>
+          </div>
+          <p style="margin: 0; fontSize: 12.5px; color: #7C736B;">Corporate rates apply once your programme is set up.</p>
+        </div>
+
+        <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; alignItems: end;">
+          <div>
+            <label for="s-from" style="display: block; fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 7px;">From</label>
+            <input id="s-from" type="text" placeholder="Tunis (TUN)" autocomplete="off" style="width: 100%; boxSizing: border-box; height: 52px; padding: 0 16px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontFamily: inherit; fontSize: 15px; color: #201E1D;" />
+          </div>
+          <div>
+            <label for="s-to" style="display: block; fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 7px;">To</label>
+            <input id="s-to" type="text" placeholder="City or airport" autocomplete="off" style="width: 100%; boxSizing: border-box; height: 52px; padding: 0 16px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontFamily: inherit; fontSize: 15px; color: #201E1D;" />
+          </div>
+          <div>
+            <label for="s-depart-btn" style="display: block; fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 7px;">Depart</label>
+            <div style="position: relative;">
+              <button type="button" id="s-depart-btn" onClick="{{ open_dep }}" style="width: 100%; boxSizing: border-box; height: 52px; display: flex; alignItems: center; justifyContent: space-between; gap: 8px; padding: 0 14px 0 16px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontFamily: inherit; fontSize: 15px; color: {{ depColor }}; cursor: pointer; textAlign: left;" style-hover="border-color: #D8D0C6;">
+                <span>{{ depLabel }}</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7C736B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+              <input id="s-depart" ref="{{ depRef }}" type="date" tabIndex="-1" aria-hidden="true" value="{{ depValue }}" onChange="{{ set_dep }}" style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; opacity: 0; pointerEvents: none; border: 0; padding: 0;" />
+            </div>
+          </div>
+          <div style="display: {{ returnDisplay }};">
+            <label for="s-return-btn" style="display: block; fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 7px;">Return</label>
+            <div style="position: relative;">
+              <button type="button" id="s-return-btn" onClick="{{ open_ret }}" style="width: 100%; boxSizing: border-box; height: 52px; display: flex; alignItems: center; justifyContent: space-between; gap: 8px; padding: 0 14px 0 16px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontFamily: inherit; fontSize: 15px; color: {{ retColor }}; cursor: pointer; textAlign: left;" style-hover="border-color: #D8D0C6;">
+                <span>{{ retLabel }}</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7C736B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </button>
+              <input id="s-return" ref="{{ retRef }}" type="date" tabIndex="-1" aria-hidden="true" value="{{ retValue }}" onChange="{{ set_ret }}" style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; opacity: 0; pointerEvents: none; border: 0; padding: 0;" />
+            </div>
+          </div>
+          <div style="position: relative;">
+            <span style="display: block; fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 7px;">Travellers &amp; class</span>
+            <button type="button" aria-haspopup="true" aria-expanded="{{ paxOpen }}" onClick="{{ togglePax }}" style="width: 100%; height: 52px; display: flex; alignItems: center; justifyContent: space-between; gap: 8px; padding: 0 14px; border: 1px solid #E6E0D8; borderRadius: 12px; background: #ffffff; fontFamily: inherit; fontSize: 15px; color: #201E1D; cursor: pointer; textAlign: left;" style-hover="border-color: #D8D0C6;">
+              <span style="overflow: hidden; textOverflow: ellipsis; whiteSpace: nowrap;">{{ paxLabel }}</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C736B" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div style="display: {{ paxDisplay }}; position: absolute; top: calc(100% + 8px); right: 0; width: min(320px, 86vw); background: #fff; border: 1px solid #ECE7E0; borderRadius: 16px; boxShadow: 0 26px 60px rgba(17,17,17,.18); padding: 16px; zIndex: 20;">
+              <sc-for list="{{ paxRows }}" as="row" hint-placeholder-count="3">
+                <div style="display: flex; alignItems: center; justifyContent: space-between; gap: 12px; padding: 9px 0;">
+                  <div>
+                    <div style="fontSize: 14px; fontWeight: 600; color: #201E1D;">{{ row.title }}</div>
+                    <div style="fontSize: 12px; color: #7C736B;">{{ row.sub }}</div>
+                  </div>
+                  <div style="display: flex; alignItems: center; gap: 10px;">
+                    <button type="button" aria-label="{{ row.decLabel }}" onClick="{{ row.dec }}" style="width: 32px; height: 32px; borderRadius: 999px; border: 1px solid #E6E0D8; background: #fff; fontSize: 17px; lineHeight: 1; color: #201E1D; cursor: pointer;" style-hover="background: #FFF3E9;">−</button>
+                    <span style="minWidth: 18px; textAlign: center; fontSize: 14.5px; fontWeight: 700;">{{ row.value }}</span>
+                    <button type="button" aria-label="{{ row.incLabel }}" onClick="{{ row.inc }}" style="width: 32px; height: 32px; borderRadius: 999px; border: 1px solid #E6E0D8; background: #fff; fontSize: 17px; lineHeight: 1; color: #201E1D; cursor: pointer;" style-hover="background: #FFF3E9;">+</button>
+                  </div>
+                </div>
+              </sc-for>
+              <div style="borderTop: 1px solid #F0EAE2; marginTop: 10px; paddingTop: 14px;">
+                <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .1em; textTransform: uppercase; color: #7C736B; marginBottom: 9px;">Cabin class</div>
+                <div style="display: flex; flexWrap: wrap; gap: 7px;">
+                  <sc-for list="{{ cabins }}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ c.pick }}" style="border: 1px solid {{ c.border }}; background: {{ c.bg }}; color: {{ c.color }}; borderRadius: 999px; padding: 8px 14px; fontFamily: inherit; fontSize: 12.5px; fontWeight: 600; cursor: pointer;">{{ c.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <button type="button" onClick="{{ togglePax }}" style="width: 100%; marginTop: 16px; height: 44px; background: #111111; color: #fff; border: none; borderRadius: 999px; fontFamily: inherit; fontSize: 14px; fontWeight: 600; cursor: pointer;">Done</button>
+            </div>
+          </div>
+          <button type="button" onClick="{{ search }}" style="height: 52px; display: inline-flex; alignItems: center; justifyContent: center; gap: 9px; background: #FF6B00; color: #fff; border: none; borderRadius: 12px; fontFamily: inherit; fontSize: 15px; fontWeight: 600; cursor: pointer; transition: background .18s;" style-hover="background: #E55F00;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Search
+          </button>
+        </div>
+        <p aria-live="polite" style="margin: 14px 0 0; fontSize: 13px; color: #B84D00; display: {{ noteDisplay }};">{{ searchNote }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section aria-label="Ahlan-Trips at a glance" style="background: #FBF8F4; borderTop: 1px solid #F0EAE2; borderBottom: 1px solid #F0EAE2;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(32px, 4vw, 48px) clamp(18px, 4vw, 44px); display: grid; gridTemplateColumns: repeat(auto-fit, minmax(150px, 1fr)); gap: clamp(20px, 3vw, 40px);">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
+        <div data-reveal="1" style="minWidth: 0;">
+          <div data-count="{{ s.num }}" data-count-suf="{{ s.suf }}" style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: clamp(30px, 3.2vw, 44px); lineHeight: 1; color: #111111; letterSpacing: -0.02em;">{{ s.value }}</div>
+          <div style="marginTop: 9px; fontSize: 13.5px; lineHeight: 1.45; color: #5C554F; textWrap: pretty;">{{ s.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ FLYING CARDS ============ -->
+  <section ref="{{ flyRef }}" aria-label="How a trip comes together" style="position: relative; background: #ffffff; height: {{ flyOuterH }};">
+    <div style="position: {{ flyStickyPos }}; top: 0; height: {{ flyStageH }}; minHeight: {{ flyStageMin }}; overflow: hidden; display: flex; flexWrap: wrap; alignItems: center; alignContent: center; justifyContent: center; gap: 14px; padding: clamp(64px, 8vw, 96px) clamp(18px, 4vw, 44px); boxSizing: border-box; perspective: 1400px;">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 900px; height: 900px; margin: -450px 0 0 -450px; borderRadius: 999px; background: radial-gradient(circle, rgba(255,107,0,.12), rgba(255,107,0,0) 62%); pointerEvents: none;"></div>
+      <div style="position: relative; zIndex: 2; width: 100%; maxWidth: 600px; textAlign: center; marginBottom: {{ flyHeadGap }};">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">One team, every moving part</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.6vw, 62px); lineHeight: 1.05; letterSpacing: -0.022em; color: #111111; textWrap: balance;">The whole trip, handled before you land</h2>
+        <p style="margin: 20px auto 0; maxWidth: 46ch; fontSize: 16.5px; lineHeight: 1.65; color: #4A443F; textWrap: pretty;">Booking, approval, visa, hotel, transfer and support run through one programme, so nothing waits on an email.</p>
+      </div>
+
+      <div data-fly="1" data-fx="-520" data-fy="-260" data-fr="-18" data-depth="1.2" style="position: {{ flyCardPos }}; left: 3%; top: 12%; zIndex: 3; width: 268px; maxWidth: 100%; background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 18px; padding: 16px; boxShadow: 0 30px 60px -24px rgba(17,17,17,.28); boxSizing: border-box;">
+        <div style="display: flex; alignItems: center; justifyContent: space-between; fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #7C736B;"><span>Flight</span><span style="color: #1E7A4C; background: #E6F4EC; padding: 4px 8px; borderRadius: 999px; letterSpacing: .04em;">In policy</span></div>
+        <div style="display: flex; alignItems: center; gap: 10px; marginTop: 12px; fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 28px; color: #111111;">TUN <span style="flex: 1; height: 1px; background: repeating-linear-gradient(90deg, #D8CFC4 0 4px, transparent 4px 8px);"></span> CDG</div>
+        <div style="marginTop: 6px; fontSize: 13px; color: #5C554F;">Tunis → Paris · Booked on corporate fare</div>
+      </div>
+
+      <div data-fly="1" data-fx="540" data-fy="-300" data-fr="16" data-depth=".8" style="position: {{ flyCardPos }}; right: 4%; top: 9%; zIndex: 3; width: 252px; maxWidth: 100%; background: #111111; color: #ffffff; borderRadius: 18px; padding: 16px; boxShadow: 0 30px 60px -24px rgba(17,17,17,.5); boxSizing: border-box;">
+        <div style="display: flex; alignItems: center; gap: 12px;">
+          <span style="width: 38px; height: 38px; flexShrink: 0; display: grid; placeItems: center; borderRadius: 999px; background: #FF6B00;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <div><div style="fontSize: 14.5px; fontWeight: 600;">Trip approved</div><div style="fontSize: 12.5px; color: rgba(255,255,255,.66); marginTop: 2px;">by your line manager</div></div>
+        </div>
+      </div>
+
+      <div data-fly="1" data-fx="-600" data-fy="60" data-fr="12" data-depth=".6" style="position: {{ flyCardPos }}; left: 1%; top: 50%; zIndex: 3; width: 240px; maxWidth: 100%; background: #FFF3E9; border: 1px solid #FFD9B8; borderRadius: 18px; padding: 16px; boxShadow: 0 30px 60px -24px rgba(184,77,0,.32); boxSizing: border-box;">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #B84D00;">Visa</div>
+        <div style="marginTop: 8px; fontSize: 15px; fontWeight: 600; color: #111111;">Schengen appointment confirmed</div>
+        <div style="marginTop: 12px; height: 6px; borderRadius: 999px; background: #FFD9B8; overflow: hidden;"><div style="width: 75%; height: 100%; background: #FF6B00; borderRadius: 999px;"></div></div>
+        <div style="marginTop: 7px; fontSize: 12px; color: #7C736B;">Documents checked · 3 of 4 steps</div>
+      </div>
+
+      <div data-fly="1" data-fx="620" data-fy="40" data-fr="-14" data-depth="1" style="position: {{ flyCardPos }}; right: 2%; top: 46%; zIndex: 3; width: 262px; maxWidth: 100%; background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 18px; overflow: hidden; boxShadow: 0 30px 60px -24px rgba(17,17,17,.28); boxSizing: border-box;">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=540&amp;h=220&amp;fit=crop" alt="Paris avenue" style="display: block; width: 100%; height: 92px; objectFit: cover;" />
+        <div style="padding: 13px 16px 15px;">
+          <div style="fontSize: 14.5px; fontWeight: 600; color: #111111;">Hotel · Paris 8e</div>
+          <div style="marginTop: 4px; fontSize: 12.5px; color: #5C554F;">Corporate rate applied automatically</div>
+        </div>
+      </div>
+
+      <div data-fly="1" data-fx="-380" data-fy="320" data-fr="-10" data-depth=".9" style="position: {{ flyCardPos }}; left: 15%; bottom: 7%; zIndex: 3; width: 250px; maxWidth: 100%; background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 18px; padding: 16px; boxShadow: 0 30px 60px -24px rgba(17,17,17,.28); boxSizing: border-box;">
+        <div style="display: flex; alignItems: center; gap: 12px;">
+          <span style="width: 38px; height: 38px; flexShrink: 0; display: grid; placeItems: center; borderRadius: 10px; background: #F6F2EC; color: #B84D00;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle></svg></span>
+          <div><div style="fontSize: 14.5px; fontWeight: 600; color: #111111;">Driver at Arrivals</div><div style="fontSize: 12.5px; color: #5C554F; marginTop: 2px;">Matched to your landing time</div></div>
+        </div>
+      </div>
+
+      <div data-fly="1" data-fx="420" data-fy="340" data-fr="12" data-depth="1.3" style="position: {{ flyCardPos }}; right: 13%; bottom: 6%; zIndex: 3; width: 286px; maxWidth: 100%; background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 18px; padding: 14px; boxShadow: 0 30px 60px -24px rgba(17,17,17,.28); boxSizing: border-box;">
+        <div style="display: flex; alignItems: center; gap: 8px; fontSize: 12px; fontWeight: 600; color: #7C736B;"><span data-pulse="1" style="width: 8px; height: 8px; borderRadius: 999px; background: #FF6B00;"></span>Ahlan-Trips support · now</div>
+        <div style="marginTop: 10px; background: #F6F2EC; borderRadius: 14px 14px 14px 4px; padding: 11px 13px; fontSize: 13.5px; lineHeight: 1.45; color: #201E1D;">Your 18:40 flight was cancelled. You're rebooked on the 20:15, same seat class.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDITORIAL INTRO ============ -->
+  <section style="background: #ffffff; padding: clamp(24px, 3vw, 48px) clamp(18px, 4vw, 44px) clamp(68px, 9vw, 130px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(36px, 5vw, 90px); alignItems: start;">
+      <div data-reveal="1">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Why companies choose us</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.2vw, 56px); lineHeight: 1.07; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Local expertise.<br />International reach.</h2>
+        <p style="margin: 24px 0 0; fontSize: 16.5px; lineHeight: 1.68; color: #4A443F; maxWidth: 46ch; textWrap: pretty;">Most travel suppliers give you either a local agency that knows your market or a global platform that doesn't. Ahlan-Trips is both: a Tunis-based team that understands how African businesses actually travel, running a programme with the content, controls and reporting an international organisation expects.</p>
+        <a href="/about" style="display: inline-flex; alignItems: center; gap: 8px; marginTop: 28px; fontSize: 15px; fontWeight: 600; color: #B84D00;">
+          More about Ahlan-Trips
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        </a>
+      </div>
+      <div data-reveal="2" style="display: flex; flexDirection: column;">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div style="display: grid; gridTemplateColumns: 46px 1fr; gap: clamp(14px, 2vw, 26px); padding: clamp(20px, 2.4vw, 28px) 0; borderTop: 1px solid #ECE7E0;">
+            <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 26px; color: #D8CFC4; lineHeight: 1;">{{ p.num }}</div>
+            <div style="minWidth: 0;">
+              <h3 style="margin: 0; fontSize: 17px; fontWeight: 600; color: #111111; letterSpacing: -0.005em;">{{ p.title }}</h3>
+              <p style="margin: 8px 0 0; fontSize: 14.8px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ p.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CORPORATE TRAVEL BAND (full-bleed dark) ============ -->
+  <section style="background: #111111; color: #ffffff; position: relative; overflow: hidden;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: clamp(68px, 9vw, 120px) clamp(18px, 4vw, 44px);">
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(32px, 4vw, 72px); alignItems: end; marginBottom: clamp(36px, 4vw, 56px);">
+        <div data-reveal="1">
+          <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FF8A33;">Corporate travel</div>
+          <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.2vw, 56px); lineHeight: 1.07; letterSpacing: -0.02em; textWrap: balance;">One programme.<br />Every part of the trip.</h2>
+        </div>
+        <p data-reveal="2" style="margin: 0; fontSize: 16.5px; lineHeight: 1.66; color: rgba(255,255,255,.72); maxWidth: 50ch; textWrap: pretty;">Flights, accommodation, ground transport, documentation and events coordinated by one team under one set of rules — so finance gets clean numbers and travellers get a single number to call.</p>
+      </div>
+
+      <div style="display: grid; gridTemplateColumns: {{ manageCols }}; gap: 1px; background: #262320; border: 1px solid #262320; borderRadius: 18px; overflow: hidden;" data-stagger="1">
+        <sc-for list="{{ manages }}" as="m" hint-placeholder-count="8">
+          <a href="{{ m.href }}" data-reveal="1" style="display: block; background: #171513; padding: clamp(22px, 2.6vw, 30px); color: #ffffff; transition: background .22s, transform .22s;" style-hover="background: #1F1C19;">
+            <div style="color: #FF8A33; marginBottom: 16px;" dangerouslySetInnerHTML="{{ m.icon }}"></div>
+            <h3 style="margin: 0; fontSize: 16.5px; fontWeight: 600; letterSpacing: -0.005em;">{{ m.title }}</h3>
+            <p style="margin: 9px 0 0; fontSize: 14px; lineHeight: 1.6; color: rgba(255,255,255,.6); textWrap: pretty;">{{ m.body }}</p>
+          </a>
+        </sc-for>
+      </div>
+
+      <div style="marginTop: clamp(32px, 4vw, 48px); display: flex; flexWrap: wrap; gap: 12px;">
+        <a href="/corporate-travel" style="display: inline-flex; alignItems: center; gap: 9px; background: #FF6B00; color: #fff; fontSize: 15px; fontWeight: 600; padding: 15px 26px; borderRadius: 999px; transition: background .18s;" style-hover="background: #E55F00;">Corporate travel in detail</a>
+        <a href="/travel-management" style="display: inline-flex; alignItems: center; border: 1px solid rgba(255,255,255,.26); color: #fff; fontSize: 15px; fontWeight: 600; padding: 15px 26px; borderRadius: 999px; transition: background .18s;" style-hover="background: rgba(255,255,255,.1);">Travel management</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES GRID ============ -->
+  <section style="background: #ffffff; padding: clamp(68px, 9vw, 130px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto;">
+      <div data-reveal="1" style="maxWidth: 620px; marginBottom: clamp(36px, 4vw, 56px);">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Services</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.2vw, 56px); lineHeight: 1.07; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Tools and services that deliver savings and control</h2>
+        <p style="margin: 20px 0 0; fontSize: 16.5px; lineHeight: 1.66; color: #4A443F; textWrap: pretty;">Six disciplines that make a travel programme work. Each one is run by people you can reach, not a ticket queue.</p>
+      </div>
+
+      <div style="display: grid; gridTemplateColumns: repeat(auto-fit, minmax(290px, 1fr)); gap: clamp(16px, 2vw, 26px);">
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="6">
+          <a href="{{ sv.href }}" data-reveal="1" style="display: block; border: 1px solid #ECE7E0; borderRadius: 18px; overflow: hidden; background: #ffffff; color: inherit; transition: box-shadow .26s, transform .26s, border-color .26s;" data-zoom="1" data-lift="1" style-hover="box-shadow: 0 24px 56px rgba(17,17,17,.12); border-color: #E0D8CE;">
+            <div style="position: relative; aspectRatio: 16 / 10; background: #2A2724; overflow: hidden;">
+              <img src="{{ sv.img }}" alt="{{ sv.alt }}" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.86) contrast(.98); transition: transform .6s cubic-bezier(.2,.7,.3,1);" />
+              <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 40%, rgba(17,17,17,.6) 100%);"></div>
+              <div style="position: absolute; left: 16px; bottom: 14px; width: 40px; height: 40px; display: grid; placeItems: center; background: rgba(255,255,255,.94); borderRadius: 11px; color: #B84D00;" dangerouslySetInnerHTML="{{ sv.icon }}"></div>
+            </div>
+            <div style="padding: clamp(20px, 2.2vw, 26px);">
+              <h3 style="margin: 0; fontSize: 19px; fontWeight: 600; color: #111111; letterSpacing: -0.008em;">{{ sv.title }}</h3>
+              <p style="margin: 10px 0 0; fontSize: 14.8px; lineHeight: 1.62; color: #5C554F; textWrap: pretty;">{{ sv.body }}</p>
+              <span style="display: inline-flex; alignItems: center; gap: 7px; marginTop: 18px; fontSize: 14px; fontWeight: 600; color: #B84D00;">
+                Learn more
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DESTINATIONS ============ -->
+  <section style="background: #FBF8F4; padding: clamp(68px, 9vw, 130px) 0;">
+    <div style="maxWidth: 1280px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 44px);">
+      <div data-reveal="1" style="display: flex; flexWrap: wrap; alignItems: baseline; justifyContent: space-between; gap: 18px 32px; marginBottom: clamp(32px, 4vw, 48px);">
+        <div style="maxWidth: 580px;">
+          <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Destinations</div>
+          <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.2vw, 56px); lineHeight: 1.07; letterSpacing: -0.02em; color: #111111; textWrap: balance;">Where our clients are flying</h2>
+        </div>
+        <div style="display: flex; alignItems: center; gap: 14px;">
+          <div style="display: flex; gap: 8px;">
+            <button type="button" aria-label="Scroll destinations left" data-rail-btn="dest" data-rail-dir="prev" style="width: 40px; height: 40px; display: grid; placeItems: center; background: #ffffff; border: 1px solid #E6E0D8; borderRadius: 999px; cursor: pointer; color: #2B2724; transition: background .16s, border-color .16s;" style-hover="background: #FFF3E9; border-color: #FFD9B8;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" aria-label="Scroll destinations right" data-rail-btn="dest" data-rail-dir="next" style="width: 40px; height: 40px; display: grid; placeItems: center; background: #ffffff; border: 1px solid #E6E0D8; borderRadius: 999px; cursor: pointer; color: #2B2724; transition: background .16s, border-color .16s;" style-hover="background: #FFF3E9; border-color: #FFD9B8;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <a href="/destinations" style="fontSize: 15px; fontWeight: 600; color: #B84D00;">All destinations →</a>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative;">
+    <div aria-hidden="true" style="position: absolute; top: 0; right: 0; bottom: 0; width: clamp(28px, 6vw, 72px); background: linear-gradient(90deg, rgba(251,248,244,0), #FBF8F4); pointerEvents: none; zIndex: 2;"></div>
+    <div data-rail="dest" style="overflow-x: auto; padding: 4px clamp(18px, 4vw, 44px) 10px; scrollSnapType: x proximity;">
+      <div style="maxWidth: 1280px; margin: 0 auto; display: flex; gap: clamp(14px, 1.6vw, 22px);">
+        <sc-for list="{{ destinations }}" as="d" hint-placeholder-count="6">
+          <a href="/destinations" data-zoom="1" style="flex: 0 0 auto; width: clamp(230px, 26vw, 300px); scrollSnapAlign: start; display: block; color: inherit;">
+            <div style="position: relative; aspectRatio: 3 / 4; borderRadius: 16px; overflow: hidden; background: #2A2724;">
+              <sc-if value="{{ d.hasPhoto }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ d.img }}" alt="{{ d.alt }}" loading="lazy" style="width: 100%; height: 100%; objectFit: cover; filter: saturate(.84); transition: transform .7s cubic-bezier(.2,.7,.3,1);" />
+              </sc-if>
+              <sc-if value="{{ d.needsPhoto }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #22201E 0 10px, #1A1917 10px 20px); display: flex; alignItems: center; justifyContent: center; padding: 22px;">
+                  <span style="fontFamily: ui-monospace, 'SFMono-Regular', Menlo, monospace; fontSize: 11px; lineHeight: 1.6; letterSpacing: .04em; color: #7C736B; textAlign: center; textTransform: uppercase;">Your Tunis photography<br />drops in here</span>
+                </div>
+              </sc-if>
+              <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 42%, rgba(17,17,17,.78) 100%);"></div>
+              <div style="position: absolute; left: 18px; right: 18px; bottom: 18px; color: #fff;">
+                <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #FFD9B8;">{{ d.region }}</div>
+                <div style="fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 24px; marginTop: 5px;">{{ d.city }}</div>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMER STORY ============ -->
+  <section style="background: #ffffff; padding: clamp(68px, 9vw, 130px) clamp(18px, 4vw, 44px);">
+    <div style="maxWidth: 1280px; margin: 0 auto; display: grid; gridTemplateColumns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 64px); alignItems: start;">
+      <div data-reveal="1">
+        <div style="fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Customer stories</div>
+        <h2 style="margin: 18px 0 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(30px, 3.6vw, 46px); lineHeight: 1.1; letterSpacing: -0.02em; color: #111111; textWrap: balance;">What our clients say</h2>
+        <div style="marginTop: clamp(26px, 3vw, 38px); display: flex; flexDirection: column;">
+          <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
+            <figure style="margin: 0; padding: clamp(22px, 2.6vw, 30px) 0; borderTop: 1px solid #ECE7E0;">
+              <blockquote style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: clamp(18px, 1.7vw, 22px); lineHeight: 1.45; color: #201E1D; letterSpacing: -0.01em; textWrap: pretty;">“{{ q.text }}”</blockquote>
+              <figcaption style="marginTop: 14px; display: flex; alignItems: center; gap: 12px;">
+                <span style="width: 38px; height: 38px; flexShrink: 0; display: grid; placeItems: center; background: #FFF3E9; color: #B84D00; borderRadius: 999px; fontSize: 12.5px; fontWeight: 700;">{{ q.initials }}</span>
+                <span>
+                  <span style="display: block; fontSize: 14px; fontWeight: 600; color: #201E1D;">{{ q.name }}</span>
+                  <span style="display: block; fontSize: 13px; color: #7C736B;">{{ q.role }}</span>
+                </span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+      <div data-reveal="2">
+        <div style="borderRadius: 18px; overflow: hidden; border: 1px solid #ECE7E0; background: #111;">
+          <video controls="controls" preload="metadata" poster="assets/ahlantestimonal.png" playsinline="playsinline" style="width: 100%; display: block; aspectRatio: 16 / 10; objectFit: cover; background: #111;">
+            <source src="assets/story.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <p style="margin: 14px 0 0; fontSize: 13px; color: #7C736B;">Customer story — press play to watch.</p>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="AudienceFlip" bg="#FBF8F4" hint-size="100%,760px"></dc-import>
+
+  <!-- ============ CTA ============ -->
+  <section style="background: #FF6B00; color: #ffffff; position: relative; overflow: hidden;">
+    <div aria-hidden="true" style="position: absolute; bottom: -180px; left: 50%; width: 640px; height: 640px; marginLeft: -320px; borderRadius: 999px; background: radial-gradient(circle, rgba(255,255,255,.2), rgba(255,255,255,0) 66%);"></div>
+    <div style="position: relative; maxWidth: 820px; margin: 0 auto; padding: clamp(64px, 8vw, 110px) clamp(18px, 4vw, 44px); textAlign: center;">
+      <h2 data-reveal="1" style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(32px, 4.6vw, 60px); lineHeight: 1.06; letterSpacing: -0.02em; textWrap: balance;">Ready to simplify your business travel?</h2>
+      <p data-reveal="2" style="margin: 22px auto 0; maxWidth: 56ch; fontSize: 17px; lineHeight: 1.62; color: rgba(255,255,255,.92); textWrap: pretty;">Tell us how your organisation travels today. Our Tunis team will come back within one business day with a programme proposal.</p>
+      <div data-reveal="3" style="display: flex; flexWrap: wrap; justifyContent: center; gap: 12px; marginTop: 34px;">
+        <a href="mailto:info@ahlan-trips.com?subject=Simplify%20our%20business%20travel%20%E2%80%94%20Ahlan-Trips" style="display: inline-flex; alignItems: center; gap: 9px; background: #111111; color: #ffffff; fontSize: 15.5px; fontWeight: 600; padding: 16px 30px; borderRadius: 999px; transition: background .18s, transform .18s;" style-hover="background: #000000; transform: translateY(-2px);">Talk to Ahlan-Trips</a>
+        <a href="/services" style="display: inline-flex; alignItems: center; background: #ffffff; color: #B84D00; fontSize: 15.5px; fontWeight: 600; padding: 16px 30px; borderRadius: 999px; transition: transform .18s;" style-hover="transform: translateY(-2px);">Explore services</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+<dc-import name="SiteUtilities" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const ICON = {
+  plane: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a.5.5 0 0 0-.5.8l2.9 3.3-2 2-2.2-.5a.5.5 0 0 0-.5.8l3 3 3 3a.5.5 0 0 0 .8-.5l-.5-2.2 2-2 3.3 2.9a.5.5 0 0 0 .8-.5Z"/></svg>' },
+  bed: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M2 16h20"/><path d="M8 7h3"/><path d="M13 7h3"/></svg>' },
+  car: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></svg>' },
+  passport: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/></svg>' },
+  users: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+  policy: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>' },
+  chart: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' },
+  shield: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' },
+  doc: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>' },
+  briefcase: { __html: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>' }
+};
+
+class Component extends DCLogic {
+  state = { trip: "return", paxOpen: false, adults: 1, children: 0, infants: 0, cabin: "Economy", note: "", intent: "corporate", wide: true, cols: 4, dep: "", ret: "" };
+  depRef = React.createRef();
+  retRef = React.createRef();
+  openDate(ref) {
+    const el = ref.current; if (!el) return;
+    try { if (el.showPicker) { el.showPicker(); return; } } catch (e) {}
+    el.focus(); el.click();
+  }
+  flyRef = React.createRef();
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    this.onFly = () => {
+      this.flyRaf = 0;
+      const sec = this.flyRef.current; if (!sec) return;
+      const cards = sec.querySelectorAll("[data-fly]");
+      if (!this.state.wide || reduce) { cards.forEach(c => { c.style.transform = "none"; c.style.opacity = 1; }); return; }
+      const r = sec.getBoundingClientRect(), vh = window.innerHeight;
+      const p = clamp((vh * 0.75 - r.top) / (vh * 1.05), 0, 1);
+      cards.forEach((c, i) => {
+        const fx = +c.dataset.fx, fy = +c.dataset.fy, fr = +c.dataset.fr, d = +c.dataset.depth || 1;
+        const t = ease(clamp((p - i * 0.05) / 0.48, 0, 1)), k = 1 - t;
+        const drift = Math.max(0, p - 0.6) * -70 * d;
+        c.style.opacity = clamp(t * 1.6, 0, 1);
+        c.style.transform = "translate3d(" + (fx * k).toFixed(1) + "px," + (fy * k + drift).toFixed(1) + "px," + (-400 * k).toFixed(1) + "px) rotateX(" + (fr * .8 * k).toFixed(2) + "deg) rotateY(" + (-fr * k).toFixed(2) + "deg) rotateZ(" + (fr * .5 * k).toFixed(2) + "deg)";
+      });
+    };
+    this.onScrollFly = () => { if (!this.flyRaf) this.flyRaf = requestAnimationFrame(this.onFly); };
+    this.onResizeHome = () => { const iw = window.innerWidth, w = iw >= 1100, c = iw >= 980 ? 4 : iw >= 560 ? 2 : 1; if (w !== this.state.wide || c !== this.state.cols) this.setState({ wide: w, cols: c }, this.onFly); else this.onFly(); };
+    window.addEventListener("scroll", this.onScrollFly, { passive: true });
+    window.addEventListener("resize", this.onResizeHome);
+    this.onResizeHome();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScrollFly);
+    window.removeEventListener("resize", this.onResizeHome);
+  }
+
+
+  bump(key, delta, min) {
+    this.setState(s => ({ [key]: Math.max(min, Math.min(9, s[key] + delta)) }));
+  }
+
+  renderVals() {
+    const s = this.state;
+    const pax = s.adults + s.children + s.infants;
+    const tab = (id, label) => ({
+      label, active: s.trip === id,
+      bg: s.trip === id ? "#ffffff" : "transparent",
+      color: s.trip === id ? "#111111" : "#5C554F",
+      shadow: s.trip === id ? "0 2px 8px rgba(17,17,17,.1)" : "none",
+      pick: () => this.setState({ trip: id })
+    });
+    const row = (key, title, sub, min) => ({
+      title, sub, value: this.state[key],
+      decLabel: "Fewer " + title.toLowerCase(), incLabel: "More " + title.toLowerCase(),
+      dec: () => this.bump(key, -1, min), inc: () => this.bump(key, 1, min)
+    });
+    const ic = p => ({ __html: '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>' });
+    const INTENTS = [
+      { id: "corporate", bg: "assets/slider1-2000.jpg", bgAlt: "A business traveller in a departure lounge as an aircraft takes off", label: "Business trips", sub: "Flights, hotels, transfers", href: "/corporate-travel", desc: "A managed programme for your company's travel, on negotiated rates.", icon: ICON.briefcase },
+      { id: "events", bg: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1100&fit=crop", bgAlt: "A conference audience facing a lit stage", label: "An event or offsite", sub: "Venues and delegates", href: "/meetings-events", desc: "Venue, delegate travel and on-site logistics run by one team.", icon: ICON.users },
+      { id: "visa", bg: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=1100&fit=crop", bgAlt: "A passport and notebook on a folded paper map", label: "A visa", sub: "Documents and appointments", href: "/visa-assistance", desc: "Requirements checked, documents prepared, appointment booked.", icon: ICON.passport },
+      { id: "leisure", bg: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&h=1100&fit=crop", bgAlt: "A palm tree and parasol on a tropical beach", label: "A holiday", sub: "Teams and families", href: "/leisure-travel", desc: "Holidays and incentive trips arranged by the team that knows your people.", icon: ic('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>') }
+    ];
+    const cur = INTENTS.find(x => x.id === s.intent) || INTENTS[0];
+    return {
+      intents: INTENTS.map(x => {
+        const on = x.id === s.intent;
+        return { ...x, active: on, pick: () => this.setState({ intent: x.id }),
+          bg: on ? "rgba(255,107,0,.22)" : "rgba(255,255,255,.06)",
+          border: on ? "#FF8A33" : "rgba(255,255,255,.16)",
+          tf: on ? "perspective(600px) translateZ(14px)" : "perspective(600px) translateZ(0)",
+          shadow: on ? "0 18px 36px -16px rgba(255,107,0,.6)" : "none",
+          iconBg: on ? "#FF6B00" : "rgba(255,255,255,.12)", iconColor: "#ffffff" };
+      }),
+      intentDesc: cur.desc, intentHref: cur.href,
+      ...(() => {
+        const fmt = v => { if (!v) return ""; const [y, m, d] = v.split("-"); return d + "/" + m + "/" + y; };
+        const today = new Date().toISOString().slice(0, 10);
+        return {
+          depRef: this.depRef, retRef: this.retRef,
+          depValue: s.dep, retValue: s.ret,
+          depLabel: s.dep ? fmt(s.dep) : "DD/MM/YYYY", retLabel: s.ret ? fmt(s.ret) : "DD/MM/YYYY",
+          depColor: s.dep ? "#201E1D" : "#9A928A", retColor: s.ret ? "#201E1D" : "#9A928A",
+          open_dep: () => { if (this.depRef.current) this.depRef.current.min = today; this.openDate(this.depRef); },
+          open_ret: () => { if (this.retRef.current) this.retRef.current.min = s.dep || today; this.openDate(this.retRef); },
+          set_dep: e => { const v = e.target.value; this.setState(st => ({ dep: v, ret: st.ret && v && st.ret < v ? "" : st.ret })); },
+          set_ret: e => this.setState({ ret: e.target.value })
+        };
+      })(),
+      manageCols: "repeat(" + (s.cols || 4) + ", minmax(0, 1fr))",
+      ...Object.fromEntries(INTENTS.map(x => ["heroBg_" + x.id, { op: x.id === s.intent ? .92 : 0, hidden: x.id !== s.intent, filter: x.id === s.intent ? "blur(0px)" : "blur(6px)" }])),
+      flyRef: this.flyRef,
+      flyOuterH: s.wide ? "150vh" : "auto",
+      flyStickyPos: s.wide ? "sticky" : "relative",
+      flyStageH: s.wide ? "100vh" : "auto",
+      flyStageMin: s.wide ? "720px" : "0px",
+      flyCardPos: s.wide ? "absolute" : "static",
+      flyHeadGap: s.wide ? "0px" : "18px",
+      tripTabs: [tab("oneway", "One way"), tab("return", "Return"), tab("multi", "Multi-city")],
+      returnDisplay: s.trip === "oneway" ? "none" : "block",
+      paxOpen: s.paxOpen, paxDisplay: s.paxOpen ? "block" : "none",
+      togglePax: () => this.setState({ paxOpen: !s.paxOpen }),
+      paxLabel: pax + (pax === 1 ? " traveller · " : " travellers · ") + s.cabin,
+      paxRows: [row("adults", "Adults", "Age 12+", 1), row("children", "Children", "Age 2–11", 0), row("infants", "Infants", "Under 2", 0)],
+      cabins: ["Economy", "Premium Economy", "Business", "First"].map(c => ({
+        label: c,
+        bg: s.cabin === c ? "#FFF3E9" : "#ffffff",
+        border: s.cabin === c ? "#FFD9B8" : "#E6E0D8",
+        color: s.cabin === c ? "#B84D00" : "#2B2724",
+        pick: () => this.setState({ cabin: c })
+      })),
+      search: () => {
+        const v = id => ((document.getElementById(id) || {}).value || "").trim();
+        const f2 = x => { if (!x) return ""; const p = x.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; };
+        const from = v("s-from") || "Tunis (TUN)", to = v("s-to"), dep = f2(s.dep), ret = f2(s.ret);
+        if (!to) { this.setState({ note: "Please enter a destination so we can quote the route." }); const t = document.getElementById("s-to"); t && t.focus(); return; }
+        const tripLabel = { oneway: "One way", return: "Return", multi: "Multi-city" }[s.trip];
+        const lines = [
+          "Hello Ahlan-Trips team,", "", "Please send me flight options for the trip below.", "",
+          "Trip type: " + tripLabel, "From: " + from, "To: " + to,
+          "Departure: " + (dep || "Flexible"),
+          ...(s.trip === "oneway" ? [] : ["Return: " + (ret || "Flexible")]),
+          "Adults: " + s.adults, "Children: " + s.children, "Infants: " + s.infants,
+          "Cabin class: " + s.cabin, "", "Thank you,", ""
+        ];
+        const subject = "Flight request: " + from + " → " + to + (dep ? " · " + dep : "") + " (" + tripLabel + ")";
+        window.location.href = "mailto:info@ahlan-trips.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        this.setState({ note: "Opening your email app with the request filled in. If nothing opens, email info@ahlan-trips.com." });
+      },
+      searchNote: s.note, noteDisplay: s.note ? "block" : "none",
+
+      stats: [
+        { value: "140+", num: "140", suf: "+", label: "Countries served globally" },
+        { value: "5,000+", num: "5000", suf: "+", label: "Active enterprise clients" },
+        { value: "30%", num: "30", suf: "%", label: "Average cost savings" },
+        { value: "500+", num: "500", suf: "+", label: "Airline & hotel partners" },
+        { value: "24/7", num: "24", suf: "/7", label: "Expert traveller support" }
+      ],
+
+      pillars: [
+        { num: "01", title: "A Tunis team that answers", body: "Your programme is run by named people in Centre Urbain Nord — reachable on WhatsApp, in Arabic, French or English, on local time." },
+        { num: "02", title: "Negotiated content, not list prices", body: "Rates negotiated with 500+ airlines and hotel chains, applied automatically to every booking your people make." },
+        { num: "03", title: "Policy that runs itself", body: "Approvals, limits and preferred suppliers built into the booking flow, so compliance happens without anyone chasing it." },
+        { num: "04", title: "Cover when plans break", body: "Cancellations, strikes, closed borders — 24/7 support rebooks your travellers and tells you where everyone is." }
+      ],
+
+      manages: [
+        { title: "Business travel", body: "Flights, rail and hotels booked to policy.", href: "/corporate-travel", icon: ICON.plane },
+        { title: "Accommodation", body: "Negotiated corporate hotel programmes.", href: "/corporate-travel", icon: ICON.bed },
+        { title: "Ground transport", body: "Airport transfers, cars and chauffeur.", href: "/corporate-travel", icon: ICON.car },
+        { title: "Visa assistance", body: "Documentation, appointments, follow-up.", href: "/visa-assistance", icon: ICON.passport },
+        { title: "Meetings & events", body: "Venue sourcing and on-site management.", href: "/meetings-events", icon: ICON.users },
+        { title: "Travel policy", body: "Design, rollout and automated guardrails.", href: "/travel-management", icon: ICON.policy },
+        { title: "Travel analytics", body: "Spend, savings and compliance reporting.", href: "/travel-management", icon: ICON.chart },
+        { title: "Duty of care", body: "Traveller tracking and emergency support.", href: "/travel-management", icon: ICON.shield }
+      ],
+
+      services: [
+        { title: "Corporate Travel", body: "End-to-end management of flights, accommodation and ground transport with negotiated rates and dedicated support for your team.", href: "/corporate-travel", icon: ICON.briefcase, img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=500&fit=crop", alt: "Aircraft wing above cloud cover" },
+        { title: "Travel Management", body: "Centralised policy, approvals and reporting across every booking channel, under one unified travel strategy.", href: "/travel-management", icon: ICON.policy, img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop", alt: "Analytics dashboard on a laptop screen" },
+        { title: "Meetings & Events", body: "Venue sourcing, contracting, on-site event management and logistics for corporate meetings and incentive travel.", href: "/meetings-events", icon: ICON.users, img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=500&fit=crop", alt: "An audience watching a presentation on a large screen" },
+        { title: "Visa Assistance", body: "Requirements checked, documentation prepared and appointments booked, so travel dates do not slip on paperwork.", href: "/visa-assistance", icon: ICON.passport, img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=500&fit=crop", alt: "A passport and notebook laid out on a folded paper map" },
+        { title: "Travel Analytics", body: "Real-time visibility into spend and supplier performance, with reports your finance team can act on.", href: "/travel-management", icon: ICON.chart, img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop", alt: "Reviewing travel spend on a laptop and phone at a desk" },
+        { title: "Leisure Travel", body: "Holidays, incentive trips and family travel for your people, arranged by the same team that handles their work trips.", href: "/leisure-travel", icon: ICON.plane, img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&h=500&fit=crop", alt: "A palm tree and parasol on a tropical beach" }
+      ],
+
+      destinations: [
+        { city: "Tunis", region: "Tunisia", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1607869861980-da5f9b8b4969?w=600&h=800&fit=crop", alt: "The blue-and-white terraces of Sidi Bou Saïd above the Gulf of Tunis" },
+        { city: "Dubai", region: "Middle East", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=800&fit=crop", alt: "Dubai skyline at dusk" },
+        { city: "Paris", region: "Europe", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=800&fit=crop", alt: "Parisian avenue leading to the Arc de Triomphe" },
+        { city: "London", region: "Europe", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&h=800&fit=crop", alt: "London street with a red bus and Big Ben" },
+        { city: "Istanbul", region: "Middle East", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=600&h=800&fit=crop", alt: "Istanbul skyline across the Bosphorus" },
+        { city: "Casablanca", region: "North Africa", hasPhoto: true, needsPhoto: false, img: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&h=800&fit=crop", alt: "Coastal mosque architecture in Morocco" }
+      ],
+
+      quotes: [
+        { text: "Ahlan's platform reduced our booking cycle time by 30% and simplified reporting across global teams.", initials: "AT", name: "Enterprise client, MICE division", role: "Global Operations Manager" },
+        { text: "The 24/7 support team is outstanding. They resolved an emergency flight cancellation in minutes during our executive trip to Dubai.", initials: "DS", name: "David Smith, TechCorp", role: "VP of Human Resources" },
+        { text: "Integrating their platform with our ERP system was completely painless. Now we have real-time travel expense audits instantly.", initials: "LM", name: "Linda Martin", role: "Finance Director, Head of Procurement" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; }
+  a { color: #B84D00; text-decoration: none; }
+  a:hover { color: #FF6B00; }
+  *:focus-visible { outline: 2px solid #FF6B00; outline-offset: 3px; border-radius: 2px; }
+</style>
+</helmet>
+<div style="display: contents;">
+<header style="position: sticky; top: 0; z-index: 90; background: rgba(255,255,255,0.92); backdrop-filter: saturate(180%) blur(14px); borderBottom: 1px solid #ECE7E0; fontFamily: 'Figtree', system-ui, sans-serif;">
+  <div style="maxWidth: 1280px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 44px); display: flex; alignItems: center; gap: clamp(12px, 3vw, 34px); height: {{ barHeight }};  transition: height .28s cubic-bezier(.2,.7,.3,1);">
+
+    <a href="/" aria-label="Ahlan-Trips — home" style="display: flex; alignItems: center; gap: 14px; flexShrink: 0; marginRight: auto; textDecoration: none;">
+      <img src="assets/logo-mark.png" alt="Ahlan-Trips" style="height: {{ logoHeight }}; width: auto; display: block; transition: height .28s cubic-bezier(.2,.7,.3,1);" />
+      <span style="display: flex; alignItems: center; gap: 14px; fontSize: 10.5px; fontWeight: 700; letterSpacing: .12em; lineHeight: 1.45; textTransform: uppercase; color: #7C736B;">
+        <span aria-hidden="true" style="width: 1px; height: 28px; background: #E6E0D8;"></span>
+        <span style="whiteSpace: nowrap;">Your Journey,<br />Our Responsibility</span>
+      </span>
+    </a>
+
+    <nav aria-label="Primary" style="display: flex; alignItems: center; gap: 2px;">
+      <a href="/" style="display: {{ deskNav }}; padding: 10px 14px; fontSize: 14.5px; fontWeight: 500; letterSpacing: .005em; color: #2B2724; borderRadius: 8px; transition: background .18s, color .18s;" style-hover="background: #F6F2EC; color: #111111;">Home</a>
+      <a href="/about" style="display: {{ deskNav }}; padding: 10px 14px; fontSize: 14.5px; fontWeight: 500; color: #2B2724; borderRadius: 8px; transition: background .18s, color .18s;" style-hover="background: #F6F2EC; color: #111111;">About</a>
+
+      <div style="display: {{ deskNav }}; position: relative;" onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}">
+        <a href="/services" aria-haspopup="true" aria-expanded="{{ servicesOpen }}" style="display: inline-flex; alignItems: center; gap: 6px; padding: 10px 14px; fontSize: 14.5px; fontWeight: 500; color: #2B2724; borderRadius: 8px; transition: background .18s;" style-hover="background: #F6F2EC; color: #111111;">
+          Services
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="transform: {{ chevronRotate }}; transition: transform .2s;" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div style="position: absolute; top: 100%; left: 50%; paddingTop: 12px; width: min(880px, calc(100vw - 48px)); transform: translateX(-42%); visibility: {{ servicesVis }}; pointerEvents: {{ servicesPE }};">
+          <div role="menu" style="display: grid; gridTemplateColumns: minmax(0, 1.55fr) minmax(0, 1fr); background: #ffffff; border: 1px solid #ECE7E0; borderRadius: 20px; boxShadow: 0 40px 90px -20px rgba(17,17,17,.28); overflow: hidden; opacity: {{ servicesOpacity }}; transform: {{ servicesTransform }}; transformOrigin: 42% 0; transition: opacity .28s ease, transform .45s cubic-bezier(.16,1,.3,1);">
+            <div style="padding: 18px;">
+              <div style="padding: 6px 12px 12px; fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #B84D00;">Services</div>
+              <div style="display: grid; gridTemplateColumns: 1fr 1fr; gap: 4px;">
+                <sc-for list="{{ serviceLinks }}" as="link" hint-placeholder-count="6">
+                  <a href="{{ link.href }}" role="menuitem" style="display: flex; gap: 12px; alignItems: flex-start; padding: 12px; borderRadius: 12px; color: #2B2724; opacity: {{ link.op }}; transform: {{ link.tf }}; transition: background .16s, opacity .35s ease {{ link.delay }}, transform .45s cubic-bezier(.16,1,.3,1) {{ link.delay }};" style-hover="background: #FFF3E9; color: #B84D00;">
+                    <span style="flexShrink: 0; width: 38px; height: 38px; display: grid; placeItems: center; borderRadius: 10px; background: #FBF4EC; color: #B84D00;" dangerouslySetInnerHTML="{{ link.icon }}"></span>
+                    <span style="minWidth: 0;">
+                      <span style="display: block; fontSize: 14.5px; fontWeight: 600; color: #111111;">{{ link.label }}</span>
+                      <span style="display: block; fontSize: 12.5px; lineHeight: 1.45; color: #7C736B; marginTop: 3px;">{{ link.note }}</span>
+                    </span>
+                  </a>
+                </sc-for>
+              </div>
+            </div>
+            <a href="/visa-assistance" style="position: relative; display: flex; flexDirection: column; justifyContent: flex-end; minHeight: 300px; padding: 22px; color: #ffffff; background: #111111; overflow: hidden;" data-zoom="1">
+              <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&amp;h=700&amp;fit=crop" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; objectFit: cover; transition: transform .8s cubic-bezier(.2,.7,.3,1);" />
+              <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,.05) 20%, rgba(17,17,17,.88) 100%);"></span>
+              <span style="position: relative; fontSize: 11px; fontWeight: 700; letterSpacing: .14em; textTransform: uppercase; color: #FFD9B8;">Featured</span>
+              <span style="position: relative; marginTop: 8px; fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 25px; lineHeight: 1.15;">Visas sorted before the ticket is issued</span>
+              <span style="position: relative; marginTop: 12px; display: inline-flex; alignItems: center; gap: 7px; fontSize: 13.5px; fontWeight: 600; color: #FFB27A;">See visa assistance →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="/destinations" style="display: {{ deskNav }}; padding: 10px 14px; fontSize: 14.5px; fontWeight: 500; color: #2B2724; borderRadius: 8px; transition: background .18s, color .18s;" style-hover="background: #F6F2EC; color: #111111;">Destinations</a>
+      <a href="/contact" style="display: {{ deskNav }}; padding: 10px 14px; fontSize: 14.5px; fontWeight: 500; color: #2B2724; borderRadius: 8px; transition: background .18s, color .18s;" style-hover="background: #F6F2EC; color: #111111;">Contact</a>
+    </nav>
+
+    <div style="display: {{ deskNav }}; position: relative;">
+      <button type="button" aria-haspopup="listbox" aria-expanded="{{ langOpen }}" onClick="{{ toggleLang }}" style="display: inline-flex; alignItems: center; gap: 7px; background: transparent; border: 1px solid #E6E0D8; borderRadius: 999px; padding: 8px 13px; fontFamily: inherit; fontSize: 13px; fontWeight: 600; color: #2B2724; cursor: pointer; transition: border-color .18s, background .18s;" style-hover="background: #F6F2EC; border-color: #D8D0C6;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        {{ langLabel }}
+      </button>
+      <ul role="listbox" style="position: absolute; top: calc(100% + 6px); right: 0; listStyle: none; margin: 0; padding: 6px; minWidth: 150px; background: #fff; border: 1px solid #ECE7E0; borderRadius: 12px; boxShadow: 0 20px 48px rgba(17,17,17,.14); display: {{ langDisplay }};">
+        <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="3">
+          <li role="option" aria-selected="{{ lang.selected }}" onClick="{{ lang.pick }}" style="padding: 9px 11px; borderRadius: 8px; fontSize: 13.5px; fontWeight: {{ lang.weight }}; color: {{ lang.color }}; cursor: pointer;" style-hover="background: #FFF3E9;">{{ lang.label }}</li>
+        </sc-for>
+      </ul>
+    </div>
+
+    <a href="mailto:info@ahlan-trips.com?subject=Talk%20to%20us%20%E2%80%94%20Ahlan-Trips" style="display: {{ deskNav }}; flexShrink: 0; background: #FF6B00; color: #ffffff; fontSize: 14px; fontWeight: 600; padding: 12px 22px; borderRadius: 999px; whiteSpace: nowrap; boxShadow: 0 6px 18px rgba(255,107,0,.26); transition: background .18s, transform .18s, box-shadow .18s;" style-hover="background: #E55F00; transform: translateY(-1px); box-shadow: 0 10px 26px rgba(255,107,0,.34);">Talk to Us</a>
+
+    <button type="button" aria-label="Open navigation" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="display: {{ mobBtn }}; flexDirection: column; justifyContent: center; gap: 5px; width: 44px; height: 44px; padding: 0 11px; background: transparent; border: 1px solid #E6E0D8; borderRadius: 11px; cursor: pointer;">
+      <span style="display: block; height: 2px; background: #111; borderRadius: 2px;"></span>
+      <span style="display: block; height: 2px; background: #111; borderRadius: 2px;"></span>
+      <span style="display: block; height: 2px; width: 66%; background: #FF6B00; borderRadius: 2px;"></span>
+    </button>
+  </div>
+
+</header>
+  <div aria-hidden="true" onClick="{{ toggleMenu }}" style="position: fixed; inset: 0; zIndex: 119; background: rgba(17,17,17,.42); backdropFilter: blur(4px); opacity: {{ scrimOpacity }}; visibility: {{ drawerVis }}; transition: opacity .4s ease, visibility .4s;"></div>
+<div role="dialog" aria-modal="true" aria-label="Navigation" style="position: fixed; top: 0; right: 0; bottom: 0; width: min(100%, 460px); zIndex: 120; background: #ffffff; padding: 22px clamp(18px,5vw,34px) 34px; overflowY: auto; boxSizing: border-box; fontFamily: 'Figtree', system-ui, sans-serif; boxShadow: -30px 0 80px rgba(17,17,17,.22); transformOrigin: right center; transform: {{ drawerTransform }}; opacity: {{ drawerOpacity }}; visibility: {{ drawerVis }}; transition: transform .6s cubic-bezier(.16,1,.3,1), opacity .45s ease, visibility .6s;">
+    <div style="display: flex; alignItems: center; justifyContent: space-between; marginBottom: 26px;">
+      <span style="display: flex; flexDirection: column; gap: 6px;"><img src="assets/logo-mark.png" alt="Ahlan-Trips" style="height: 44px; width: auto; alignSelf: flex-start;" /><span style="fontSize: 10.5px; fontWeight: 700; letterSpacing: .12em; textTransform: uppercase; color: #7C736B;">Your Journey, Our Responsibility</span></span>
+      <button type="button" aria-label="Close navigation" onClick="{{ toggleMenu }}" style="width: 44px; height: 44px; display: grid; placeItems: center; background: #F6F2EC; border: none; borderRadius: 11px; cursor: pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile" style="display: flex; flexDirection: column; gap: 2px;">
+      <sc-for list="{{ allLinks }}" as="link" hint-placeholder-count="10">
+        <a href="{{ link.href }}" style="opacity: {{ link.op }}; transform: {{ link.tf }}; transition: opacity .5s ease {{ link.delay }}, transform .6s cubic-bezier(.16,1,.3,1) {{ link.delay }}, color .18s; display: flex; alignItems: baseline; gap: 14px; padding: 15px 4px; borderBottom: 1px solid #F2EDE6; fontFamily: 'Libre Caslon Display', Georgia, serif; fontSize: 25px; color: #111111;" style-hover="color: #B84D00;">
+          <span style="fontFamily: 'Figtree', sans-serif; fontSize: 11px; fontWeight: 600; color: #C9BFB3; letterSpacing: .1em;">{{ link.num }}</span>
+          {{ link.label }}
+        </a>
+      </sc-for>
+    </nav>
+    <a href="mailto:info@ahlan-trips.com?subject=Talk%20to%20us%20%E2%80%94%20Ahlan-Trips" style="display: block; textAlign: center; marginTop: 26px; background: #FF6B00; color: #fff; fontSize: 16px; fontWeight: 600; padding: 17px; borderRadius: 999px;">Talk to Us</a>
+    <div style="display: flex; gap: 8px; marginTop: 18px;">
+      <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="3">
+        <button type="button" onClick="{{ lang.pick }}" style="flex: 1; padding: 12px; background: {{ lang.chipBg }}; color: {{ lang.chipColor }}; border: 1px solid #E6E0D8; borderRadius: 999px; fontFamily: inherit; fontSize: 13px; fontWeight: 600; cursor: pointer;">{{ lang.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:120}}">
+class Component extends DCLogic {
+  state = { scrolled: false, servicesOpen: false, langOpen: false, menuOpen: false, lang: "EN", wide: true };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const s = window.scrollY > 24;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    this.onResize = () => {
+      const w = window.innerWidth >= 1080;
+      if (w !== this.state.wide) this.setState({ wide: w, menuOpen: false });
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    window.addEventListener("resize", this.onResize);
+    this.onKey = e => { if (e.key === "Escape" && this.state.menuOpen) this.setState({ menuOpen: false }); };
+    window.addEventListener("keydown", this.onKey);
+    this.onResize();
+  }
+  componentDidUpdate() {
+    if (this._lastMenu !== this.state.menuOpen) {
+      this._lastMenu = this.state.menuOpen;
+      document.documentElement.style.overflow = this.state.menuOpen ? "hidden" : "";
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("keydown", this.onKey);
+    document.documentElement.style.overflow = "";
+  }
+
+  renderVals() {
+    const { scrolled, servicesOpen, langOpen, menuOpen, lang, wide } = this.state;
+    const ic = p => ({ __html: '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>' });
+    const services = [
+      { href: "/corporate-travel", label: "Corporate Travel", note: "Managed programmes end to end", icon: ic('<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>') },
+      { href: "/travel-management", label: "Travel Management", note: "Policy, approvals and reporting", icon: ic('<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>') },
+      { href: "/meetings-events", label: "Meetings & Events", note: "Venue sourcing and MICE logistics", icon: ic('<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>') },
+      { href: "/visa-assistance", label: "Visa Assistance", note: "Documentation and appointments", icon: ic('<rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/>') },
+      { href: "/leisure-travel", label: "Leisure Travel", note: "Holidays for teams and families", icon: ic('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>') },
+      { href: "/services", label: "All services", note: "The full Ahlan-Trips hub", icon: ic('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>') }
+    ];
+    const nav = [
+      ["Home", "/"], ["About", "/about"], ["Services", "/services"],
+      ["Corporate Travel", "/corporate-travel"], ["Travel Management", "/travel-management"],
+      ["Meetings & Events", "/meetings-events"], ["Visa Assistance", "/visa-assistance"],
+      ["Leisure Travel", "/leisure-travel"], ["Destinations", "/destinations"], ["Contact", "/contact"]
+    ];
+    const mk = (code, label) => ({
+      label, selected: lang === code, weight: lang === code ? 700 : 500,
+      color: lang === code ? "#B84D00" : "#2B2724",
+      chipBg: lang === code ? "#FFF3E9" : "#ffffff",
+      chipColor: lang === code ? "#B84D00" : "#2B2724",
+      pick: () => this.setState({ lang: code, langOpen: false })
+    });
+    return {
+      barHeight: scrolled ? "68px" : "86px",
+      logoHeight: scrolled ? "40px" : "52px",
+      deskNav: wide ? "inline-flex" : "none",
+      mobBtn: wide ? "none" : "flex",
+      servicesOpen, servicesVis: servicesOpen ? "visible" : "hidden", servicesPE: servicesOpen ? "auto" : "none",
+      servicesOpacity: servicesOpen ? 1 : 0,
+      servicesTransform: servicesOpen ? "perspective(1200px) rotateX(0) translateY(0)" : "perspective(1200px) rotateX(-14deg) translateY(-10px)",
+      chevronRotate: servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+      openServices: () => { clearTimeout(this.svcT); this.setState({ servicesOpen: true }); },
+      closeServices: () => { clearTimeout(this.svcT); this.svcT = setTimeout(() => this.setState({ servicesOpen: false }), 140); },
+      serviceLinks: services.map((s, i) => ({ ...s, op: servicesOpen ? 1 : 0, tf: servicesOpen ? "none" : "translateY(8px)", delay: servicesOpen ? (60 + i * 35) + "ms" : "0ms" })),
+      allLinks: nav.map(([label, href], i) => ({ label, href, num: String(i + 1).padStart(2, "0"),
+        op: menuOpen ? 1 : 0, tf: menuOpen ? "none" : "perspective(600px) translateX(40px) rotateY(-24deg)",
+        delay: menuOpen ? (120 + i * 40) + "ms" : "0ms" })),
+      langOpen, langDisplay: langOpen ? "block" : "none",
+      langLabel: lang,
+      langs: [mk("EN", "English"), mk("AR", "العربية"), mk("FR", "Français")],
+      toggleLang: () => this.setState({ langOpen: !langOpen }),
+      menuOpen, drawerVis: menuOpen ? "visible" : "hidden",
+      drawerOpacity: menuOpen ? 1 : 0, scrimOpacity: menuOpen ? 1 : 0,
+      drawerTransform: menuOpen ? "perspective(1400px) translateX(0) rotateY(0deg)" : "perspective(1400px) translateX(60%) rotateY(-28deg)",
+      toggleMenu: () => this.setState({ menuOpen: !menuOpen })
+    };
+  }
+}
+</script>
+</body>
+</html>

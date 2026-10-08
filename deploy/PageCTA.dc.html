@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>body { margin: 0; }</style>
+<style>
+  @keyframes amKen { 0% { transform: scale(1.04) translate3d(0,0,0); } 100% { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @keyframes amFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes amPulse { 0% { box-shadow: 0 0 0 0 rgba(255,107,0,.5); } 70% { box-shadow: 0 0 0 14px rgba(255,107,0,0); } 100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); } }
+  @keyframes amSweep { 0% { transform: translateX(-120%); } 100% { transform: translateX(240%); } }
+  [data-ken] { animation: amKen 26s ease-in-out infinite alternate; }
+  [data-float] { animation: amFloat 6s ease-in-out infinite; }
+  [data-pulse] { animation: amPulse 2.6s ease-out infinite; }
+  [data-zoom] img { transition: transform .85s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+  [data-zoom]:hover img, [data-zoom]:focus-visible img { transform: scale(1.07); filter: saturate(1) !important; }
+  [data-lift] { transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, border-color .3s ease; }
+  [data-lift]:hover { transform: translateY(-6px); }
+  [data-underline] { position: relative; }
+  [data-underline]::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px; background: currentColor; transition: right .36s cubic-bezier(.2,.7,.3,1); }
+  [data-underline]:hover::after { right: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-ken], [data-float], [data-pulse] { animation: none !important; }
+    [data-zoom] img, [data-lift] { transition: none !important; }
+  }
+</style>
+<script src="site-motion.js"></script>
+</helmet>
+<section style="background: #FF6B00; color: #ffffff; position: relative; overflow: hidden; fontFamily: 'Figtree', system-ui, sans-serif;">
+  <div aria-hidden="true" data-float="1" style="position: absolute; bottom: -200px; left: 50%; width: 660px; height: 660px; marginLeft: -330px; borderRadius: 999px; background: radial-gradient(circle, rgba(255,255,255,.2), rgba(255,255,255,0) 66%);"></div>
+  <div style="position: relative; maxWidth: 820px; margin: 0 auto; padding: clamp(60px, 7.5vw, 104px) clamp(18px, 4vw, 44px); textAlign: center;">
+    <h2 data-reveal="1" style="margin: 0; fontFamily: 'Libre Caslon Display', Georgia, serif; fontWeight: 400; fontSize: clamp(30px, 4.2vw, 54px); lineHeight: 1.07; letterSpacing: -0.02em; textWrap: balance;">{{ title }}</h2>
+    <p data-reveal="2" style="margin: 20px auto 0; maxWidth: 56ch; fontSize: 16.5px; lineHeight: 1.62; color: rgba(255,255,255,.92); textWrap: pretty;">{{ body }}</p>
+    <div data-reveal="3" style="display: flex; flexWrap: wrap; justifyContent: center; gap: 12px; marginTop: 32px;">
+      <a href="mailto:info@ahlan-trips.com?subject=Enquiry%20from%20the%20Ahlan-Trips%20website" style="display: inline-flex; alignItems: center; background: #111111; color: #ffffff; fontSize: 15.5px; fontWeight: 600; padding: 16px 30px; borderRadius: 999px; textDecoration: none; transition: background .18s, transform .18s;" style-hover="background: #000000; transform: translateY(-2px);">{{ primaryLabel }}</a>
+      <a href="https://wa.me/21627764593" target="_blank" rel="noopener" style="display: inline-flex; alignItems: center; gap: 9px; background: #ffffff; color: #B84D00; fontSize: 15.5px; fontWeight: 600; padding: 16px 30px; borderRadius: 999px; textDecoration: none; transition: transform .18s;" style-hover="transform: translateY(-2px);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+        WhatsApp us
+      </a>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:420},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Ready to simplify your business travel?&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;body&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tell us how your organisation travels today. Our Tunis team will come back within one business day.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;primaryLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Talk to Ahlan-Trips&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return {
+      title: p.title ?? "Ready to simplify your business travel?",
+      body: p.body ?? "Tell us how your organisation travels today. Our Tunis team will come back within one business day.",
+      primaryLabel: p.primaryLabel ?? "Talk to Ahlan-Trips"
+    };
+  }
+}
+</script>
+</body>
+</html>
